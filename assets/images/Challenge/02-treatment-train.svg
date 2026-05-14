@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="800" height="450"
+     role="img" aria-label="Oil droplets pass through filter stages; tiny emulsified droplets slip through and gradually foul the desalination membrane.">
+  <title>Where the treatment train fails</title>
+
+  <style><![CDATA[
+    /* Stage dividers reveal from centre */
+    @keyframes lineReveal {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
+    }
+
+    /* Large oil drops drift right to primary, then fade and reset.
+       Infinite loop — opacity:0 at 0% and 100% gives a clean reset each cycle. */
+    @keyframes largeDrop {
+      0%   { transform: translateX(0px);  opacity: 0; }
+      8%   { transform: translateX(4px);  opacity: 1; }
+      50%  { transform: translateX(57px); opacity: 1; }
+      65%  { transform: translateX(57px); opacity: 0; }
+      100% { transform: translateX(0px);  opacity: 0; }
+    }
+
+    /* Micro drops slip from filter to membrane.
+       Hold baked into 0-40% so every loop starts identically.
+       Negative delays phase-offset drops without losing the gap on loops. */
+    @keyframes microSlip {
+      0%, 40%   { transform: translateX(0px);    opacity: 0; }
+      43%       { transform: translateX(3px);    opacity: 0.9; }
+      87%       { transform: translateX(128px);  opacity: 0.85; }
+      93%, 100% { transform: translateX(128px);  opacity: 0; }
+    }
+
+    /* Fouling builds from the left edge of the membrane */
+    @keyframes foulBuild {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* Warning blinks — starts blinking right away, no separate delay needed */
+    @keyframes warnBlink {
+      0%, 100% { opacity: 1; }
+      45%      { opacity: 0.05; }
+    }
+
+    /* Stage lines */
+    .stages line {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: lineReveal 0.38s ease-out both;
+    }
+    .stages line:nth-child(1) { animation-delay: 0.10s; }
+    .stages line:nth-child(2) { animation-delay: 0.24s; }
+    .stages line:nth-child(3) { animation-delay: 0.38s; }
+
+    /* Large drops — infinite loop, different durations create organic stagger.
+       No animation-delay so every cycle looks identical. */
+    .big-drops circle {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .big-drops circle:nth-child(1) { animation: largeDrop 7.8s ease-in-out infinite; }
+    .big-drops circle:nth-child(2) { animation: largeDrop 8.6s ease-in-out infinite; }
+    .big-drops circle:nth-child(3) { animation: largeDrop 9.4s ease-in-out infinite; }
+
+    /* Micro drops — infinite loop.
+       Negative delays place each drop at a different point within the
+       40% invisible-hold window so stagger survives every loop.
+       More negative = appears sooner = leftmost drop first. */
+    .micro-drops circle {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: microSlip 8s ease-in-out infinite;
+    }
+    .micro-drops circle:nth-child(1) { animation-delay: -2.0s; }
+    .micro-drops circle:nth-child(2) { animation-delay: -1.6s; }
+    .micro-drops circle:nth-child(3) { animation-delay: -1.2s; }
+    .micro-drops circle:nth-child(4) { animation-delay: -0.8s; }
+    .micro-drops circle:nth-child(5) { animation-delay: -0.4s; }
+
+    /* Fouling overlay — one-shot, holds at final state */
+    .foul {
+      transform-box: fill-box;
+      transform-origin: left;
+      animation: foulBuild 1.1s ease-out both;
+      animation-delay: 3.8s;
+    }
+
+    /* Warning blinks continuously — no delay needed */
+    .warn {
+      animation: warnBlink 1.15s ease-in-out infinite;
+    }
+  ]]></style>
+
+  <!-- Baseline flow -->
+  <line x1="0" y1="92" x2="320" y2="92" stroke="#E2E8EC" stroke-width="1"/>
+
+  <!-- Stage dividers -->
+  <g class="stages" stroke="#0E1A2B" stroke-width="1.25">
+    <line x1="60"  y1="60" x2="60"  y2="124"/>
+    <line x1="140" y1="60" x2="140" y2="124"/>
+    <line x1="220" y1="60" x2="220" y2="124"/>
+  </g>
+
+  <!-- Stage labels -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8" fill="#9AB1BD" letter-spacing="1">
+    <text x="60"  y="142" text-anchor="middle">PRIMARY</text>
+    <text x="140" y="142" text-anchor="middle">FILTER</text>
+    <text x="220" y="142" text-anchor="middle">POLISH</text>
+    <text x="290" y="142" text-anchor="middle">RO</text>
+  </g>
+
+  <!-- RO membrane (two struts + fouling overlay) -->
+  <g>
+    <rect x="286" y="52" width="4"  height="80" fill="#0E1A2B" rx="0.5"/>
+    <rect x="294" y="52" width="4"  height="80" fill="#0E1A2B" rx="0.5"/>
+    <rect class="foul" x="286" y="52" width="12" height="80" fill="#D97757" rx="0.5"/>
+  </g>
+
+  <!-- Large oil drops entering from the left -->
+  <g class="big-drops" fill="#0E1A2B">
+    <circle cx="5" cy="92"  r="4"/>
+    <circle cx="5" cy="82"  r="3.5"/>
+    <circle cx="5" cy="100" r="3"/>
+  </g>
+
+  <!-- Micro emulsified drops (slip through filter toward membrane) -->
+  <g class="micro-drops" fill="#D97757">
+    <circle cx="155" cy="89" r="1.6"/>
+    <circle cx="168" cy="95" r="1.4"/>
+    <circle cx="180" cy="88" r="1.5"/>
+    <circle cx="193" cy="93" r="1.3"/>
+    <circle cx="207" cy="90" r="1.5"/>
+  </g>
+
+  <!-- Warning indicator -->
+  <g class="warn">
+    <line x1="304" y1="56" x2="304" y2="64" stroke="#D97757" stroke-width="1.5"/>
+    <circle cx="304" cy="68" r="1" fill="#D97757"/>
+  </g>
+
+  <!-- Caption -->
+  <text x="8" y="172" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8" fill="#9AB1BD" letter-spacing="1.5">EMULSIFIED OIL → MEMBRANE FOULING</text>
+</svg>

@@ -3,198 +3,875 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oleava Technologies | Produced Water Reuse</title>
-  <meta name="description" content="Oleava Technologies develops advanced oil-water separation systems for produced water reuse and industrial water recovery.">
-  <link rel="stylesheet" href="./assets/styles.css">
+  <title>Oleava Technologies — Produced Water Reuse</title>
+  <meta name="description" content="Oleava Technologies builds the pre-desalination polishing step that makes produced water reuse more reliable, more financeable, and more deployable. University of Toronto spin-off. TRL-6 ready.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230EA5D8'/><stop offset='1' stop-color='%2327c76f'/></linearGradient></defs><circle cx='16' cy='16' r='16' fill='%2309172B'/><circle cx='16' cy='16' r='9' fill='url(%23g)'/></svg>">
+  <link rel="stylesheet" href="./assets/styles-yc.css">
+  <link rel="stylesheet" href="./assets/styles-yc-team-v2.css">
+  <style>
+    /* ── Challenge column SVG visuals ── */
+    .col-item { display: flex; flex-direction: column; }
+    .challenge-visual {
+      margin-top: 28px; padding-top: 24px;
+      border-top: 1px solid #E2E8F0;
+      flex: 1; display: flex; align-items: flex-end;
+    }
+    .challenge-svg { display: block; width: 100%; height: auto; }
+    .three-col { align-items: stretch; }
+
+    /* ── Platform market note ── */
+    .platform-market-note {
+      font-size: 0.98rem;
+      line-height: 1.72;
+      color: #0E1A2B;
+      background: rgba(14,165,216,0.06);
+      border-left: 3px solid #0EA5D8;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    /* ── Image Carousel ── */
+    .carousel-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #E4EBF0;
+      flex-shrink: 0;
+      height: 210px;                       /* matches original proof-card img height */
+    }
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-slide img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
+    }
+    .carousel-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 6px;
+      background: linear-gradient(135deg, #E8EEF4 0%, #D4DDE6 100%);
+      z-index: 0;
+    }
+    .carousel-placeholder span {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9.5px; letter-spacing: 2px;
+      color: #9AB1BD; text-transform: uppercase;
+    }
+    .carousel-placeholder svg {
+      opacity: 0.3;
+    }
+    .carousel-ui {
+      position: absolute;
+      bottom: 10px; left: 0; right: 0;
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px; z-index: 10;
+    }
+    .carousel-btn {
+      width: 26px; height: 26px;
+      background: rgba(255,255,255,0.88);
+      border: none; border-radius: 50%;
+      cursor: pointer; font-size: 15px; line-height: 1;
+      color: #0E1A2B;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.18s, transform 0.14s;
+      flex-shrink: 0; padding: 0;
+      backdrop-filter: blur(4px);
+    }
+    .carousel-btn:hover { background: #fff; transform: scale(1.1); }
+    .carousel-dots { display: flex; gap: 5px; align-items: center; }
+    .carousel-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+      border: none; cursor: pointer; padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .carousel-dot.active { background: #fff; transform: scale(1.5); }
+
+    /* ── Market tier list ── */
+    .market-tiers {
+      display: flex; flex-direction: column; gap: 14px;
+      margin-top: 14px;
+    }
+    .market-tier {
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .tier-label {
+      flex-shrink: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8.5px; letter-spacing: 1.5px; font-weight: 700;
+      color: #0EA5D8;
+      background: rgba(14,165,216,0.09);
+      padding: 3px 8px; border-radius: 20px;
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+    .tier-body h6 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      color: #0E1A2B; margin: 0 0 3px;
+    }
+    .tier-body p {
+      font-size: 0.82rem !important;
+      line-height: 1.55 !important;
+      color: #5A6B7A; margin: 0 !important;
+    }
+    .tier-stat {
+      display: inline-block;
+      font-weight: 700; color: #0EA5D8;
+    }
+    .tier-divider {
+      height: 1px; background: #E2E8F0;
+      margin: 2px 0 2px 50px;
+    }
+  </style>
 </head>
 <body>
-  <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Oleava home">
+
+  <header class="nav" id="top">
+    <div class="container nav-inner">
+      <a href="#top" class="nav-logo">
         <img src="./assets/images/logo-navy.png" alt="Oleava Technologies">
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#solutions">Solutions</a>
-        <a href="#industries">Industries</a>
-        <a href="#platform">Platform</a>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#platform">Technology</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
         <a href="#contact">Contact</a>
       </nav>
-    </header>
+      <a href="#contact" class="btn btn-nav">Talk to Us &rarr;</a>
+    </div>
+  </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-header">
-          <p class="eyebrow">Advanced Water Treatment For Energy Systems</p>
-          <h2 class="hero-heading">Enabling Oilfield Produced Water Reuse.</h2>
-        </div>
-        <img class="hero-line" src="./assets/images/line-3.png" alt="">
-        <div class="hero-body">
-          <div class="hero-copy">
-            <div class="hero-copy-inner">
-              <p class="hero-text">
-                Oleava Technologies is a University of Toronto spin-off delivering next-generation oil–water separation for produced water in upstream and midstream operations. 
-                Built and validated with U.S. and Canadian agencies, our modular, low-energy systems capture the micro- and nano-emulsions that limit conventional treatment performance. Designed for reliability in onshore and offshore environments, Oleava enables operators to meet evolving regulatory requirements while turning produced water into a reusable, cost-effective resource.
-                Oleava is the pivot point that transforms produced water from a disposal endpoint into a reuse-ready input for the next generation of energy and water systems.
-              </p>
-              <p class="hero-text">
-                But Oleava did not begin as a product—it began as a problem.
-                Across energy basins worldwide, operators face tightening disposal constraints, rising water demand, and treatment systems pushed beyond their original design limits. We saw a persistent gap between what conventional infrastructure could deliver and what modern operations require: predictable, reliable performance under real field variability.
-                That realization shaped our mission.
-                We set out to build a system that operators could trust—not just in the lab, but in the field, every day. Today, Oleava sits at the intersection of compliance, reliability, and economics—helping transform water management from a regulatory burden into an operational advantage.
-              </p>
-              <p class ="hero-text">
-                Come explore how we got here and how we can help solve your next water challenge.
-              </p>
-            </div>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#contact">Request a Demo</a>
-              <a class="button button-secondary" href="#solutions">Explore the Platform</a>
-            </div>
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <div class="kicker">University of Toronto Spin-Off &nbsp;·&nbsp; TRL-6 &nbsp;·&nbsp; Permian Basin</div>
+          <h1>Produced water reuse breaks before desalination. We built the step that fixes it.</h1>
+          <p class="hero-sub">Oleava's pre-desalination polishing system removes the residual emulsified oil that primary separation leaves behind — the fraction that disrupts membranes, raises fouling risk, and keeps operators from committing to reuse. One modular step added to the existing train. No full system replacement.</p>
+          <div class="hero-actions">
+            <a href="#platform" class="btn btn-primary">See the Technology</a>
+            <a href="#contact" class="btn btn-outline">Start a Conversation</a>
           </div>
-          
-          <div class="hero-panel">
-            <div class="hero-media">
-              <img class="hero-banner" src="./assets/images/banner-master.png" alt="">
-              <img class="hero-render" src="./assets/images/Render_GIF.gif" alt="Oleava render animation">
+        </div>
+        <div class="hero-visual">
+          <div class="hero-frame">
+            <div class="hero-badge">TRL-6 Demo Ready</div>
+            <video autoplay muted loop playsinline>
+              <source src="./assets/images/Render_White.mp4" type="video/mp4">
+              <img src="./assets/images/render-01.png" alt="Oleava unit render">
+            </video>
+          </div>
+          <div class="hero-caption">
+            <div class="hero-chip">
+              <span class="chip-label">Deployment model</span>
+              <span class="chip-value">Demo now. Field pilot next. Modular scale after validation.</span>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        
-      </section>
-
-      <section class="proof-band">
-        <div class="proof-item">
-          <p class="proof-number">01</p>
-          <p>Use this for your strongest operating or performance proof point.</p>
+    <!-- ═══ STATS ═══ -->
+    <div class="stats-strip">
+      <div class="container stats-inner">
+        <div class="stat">
+          <strong>5&ndash;10&times;</strong>
+          <span>Water generated per barrel of oil — a growing infrastructure bottleneck operators cannot ignore</span>
         </div>
-        <div class="proof-item">
-          <p class="proof-number">02</p>
-          <p>Use this for commercial stage, pilot readiness, or deployment format.</p>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <strong>$50M+/day</strong>
+          <span>Illustrative disposal burden across Permian Basin operations alone</span>
         </div>
-        <div class="proof-item">
-          <p class="proof-number">03</p>
-          <p>Use this for the urgency driver: reuse economics, disposal reduction, or compliance pressure.</p>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <strong>Add One Step</strong>
+          <span>Strengthen the existing treatment train rather than asking operators to replace it</span>
         </div>
-      </section>
+      </div>
+    </div>
 
-      <section class="section-layout section-intro-block" id="solutions">
-        <div class="section-heading">
-          <p class="eyebrow">Solutions</p>
-          <h2>Professional structure without pretending to be a larger company than you are.</h2>
+    <!-- ═══ ABOUT ═══ -->
+    <section class="section section-white" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">The Challenge</div>
+          <h2>Disposal is getting harder.<br>Reuse is the obvious answer.<br>The gap is just before desalination.</h2>
         </div>
-        <p class="section-copy">
-          Use this section to organize the page around the problems you solve, the operating results you enable, and the commercial context buyers care about most.
-        </p>
-      </section>
+        <div class="three-col">
+          <div class="col-item">
+            <h4>A growing volume problem</h4>
+            <p>Upstream and midstream operators generate enormous daily volumes of produced water that can no longer be quietly absorbed. Disposal wells are filling up, freshwater availability is declining, and the regulatory window for doing nothing is closing faster than most operators planned for.</p>
+            <div class="challenge-visual">
+              <img class="challenge-svg"
+                   src="./assets/images/Challenge/01-volume-problem.svg"
+                   alt="Animated chart showing produced water volumes rising while disposal capacity remains constrained"
+                   loading="lazy">
+            </div>
+          </div>
+          <div class="col-item">
+            <h4>Where the treatment train fails</h4>
+            <p>Existing infrastructure handles primary oil removal reasonably well. What it leaves behind — residual emulsified oil — is the fraction that passes through and then disrupts desalination membranes, raises fouling risk, and forces operators to slow down or walk away from reuse commitments they needed to make.</p>
+            <div class="challenge-visual">
+              <img class="challenge-svg"
+                   src="./assets/images/Challenge/02-treatment-train.svg"
+                   alt="Animated diagram showing emulsified oil passing through primary treatment and fouling downstream membranes"
+                   loading="lazy">
+            </div>
+          </div>
+          <div class="col-item">
+            <h4>The missing confidence layer</h4>
+            <p>Operators, project partners, and infrastructure financiers all need to trust the reuse pathway before they commit capital. Right now, the step just before desalination is where that trust tends to collapse. That is the exact problem Oleava was built to solve.</p>
+            <div class="challenge-visual">
+              <img class="challenge-svg"
+                   src="./assets/images/Challenge/03-confidence-gap.svg"
+                   alt="Animated diagram showing where operator confidence collapses in the treatment pathway before desalination"
+                   loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section class="solution-grid">
-        <article class="solution-card solution-card-primary">
-          <p class="micro-label">Water Reuse</p>
-          <h3>Move produced water closer to reuse-ready quality.</h3>
-          <p>Replace this with your core reuse outcome, treatment target, and where your system fits in the treatment train.</p>
-          <a href="#contact">Learn more</a>
-        </article>
-        <article class="solution-card">
-          <p class="micro-label">Operating Stability</p>
-          <h3>Handle difficult oil-water conditions with a steadier treatment profile.</h3>
-          <p>Use this for upsets, chemistry variation, emulsions, reliability, or reduced operator burden.</p>
-          <a href="#contact">Learn more</a>
-        </article>
-        <article class="solution-card">
-          <p class="micro-label">Deployment</p>
-          <h3>Designed for modular integration into real industrial environments.</h3>
-          <p>Use this for footprint, retrofit compatibility, pilot setup, or containerized deployment.</p>
-          <a href="#contact">Learn more</a>
-        </article>
-      </section>
-
-      <section class="section-layout split-section" id="industries">
-        <div class="section-heading">
-          <p class="eyebrow">Industries</p>
-          <h2>Target sectors presented the way industrial buyers expect.</h2>
-          <p class="section-copy">
-            Instead of trying to show too many activities, this template focuses on a few clearly relevant sectors and leaves room for you to expand later.
-          </p>
+    <!-- ═══ PLATFORM ═══ -->
+    <section class="section section-light" id="platform">
+      <div class="container">
+        <div class="platform-header">
+          <div>
+            <div class="section-label">Technology</div>
+            <h2>One step.<br>A fundamentally<br>more reliable train.</h2>
+          </div>
+          <div class="platform-copy">
+            <p class="platform-market-note">The Permian is where disposal burden, freshwater scarcity, and reuse urgency are most concentrated. Oleava's initial market targets the operators already feeling the most pressure to find a better answer.</p>
+            <p>Oleava slots between primary oil removal and desalination — the choke point where residual emulsified oil causes the most downstream damage. The system is modular and additive: it strengthens the existing treatment train without requiring operators to replace what already works.</p>
+            <p>Current materials reflect TRL-6 readiness, a demo-unit form factor sized for operator site visits, and a modular path from single-site pilot to repeatable commercial deployment.</p>
+          </div>
         </div>
 
-        <div class="industry-grid">
-          <article class="industry-card">
-            <h3>Upstream Oil & Gas</h3>
-            <p>Produced water reuse, treatment optimization, and modular deployment for field operations.</p>
+        <div class="process-flow">
+          <div class="process-step">
+            <div class="step-num">01</div>
+            <h5>Primary Oil Removal</h5>
+            <p>Bulk separation and upstream treatment complete the first pass — leaving residual emulsified oil in the produced water stream.</p>
+          </div>
+          <div class="process-step step-oleava">
+            <div class="oleava-tag">Oleava</div>
+            <div class="step-num step-accent">02</div>
+            <h5>Pre-Desal Polishing</h5>
+            <p>Targeted removal of the residual oil fraction before it can disrupt downstream treatment economics, membrane performance, or reuse reliability.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">03</div>
+            <h5>Desalination</h5>
+            <p>Cleaner feed water means lower fouling risk, more predictable membrane life, and operating economics that hold up under diligence.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">04</div>
+            <h5>Reuse or Compliance</h5>
+            <p>Water quality that is easier to route toward useful end-uses or meet evolving discharge standards with confidence.</p>
+          </div>
+        </div>
+
+        <div class="proof-row">
+
+          <!-- ── Technology Showcase (carousel) ── -->
+          <div class="proof-card">
+            <!-- Carousel: add images as assets/images/carousel/tech-1.jpg … tech-5.jpg -->
+            <div class="carousel-wrap" data-carousel="tech">
+              <div class="carousel-track">
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/tech-1.jpg" alt="Technology showcase — image 1" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <span>Tech Showcase · 1 / 5</span>
+                  </div>
+                </div>
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/tech-2.jpg" alt="Technology showcase — image 2" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <span>Tech Showcase · 2 / 5</span>
+                  </div>
+                </div>
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/tech-3.jpg" alt="Technology showcase — image 3" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <span>Tech Showcase · 3 / 5</span>
+                  </div>
+                </div>
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/tech-4.jpg" alt="Technology showcase — image 4" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <span>Tech Showcase · 4 / 5</span>
+                  </div>
+                </div>
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/tech-5.jpg" alt="Technology showcase — image 5" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <span>Tech Showcase · 5 / 5</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="carousel-ui">
+                <button class="carousel-btn carousel-prev" aria-label="Previous image">&#8249;</button>
+                <div class="carousel-dots">
+                  <button class="carousel-dot active" aria-label="Image 1"></button>
+                  <button class="carousel-dot" aria-label="Image 2"></button>
+                  <button class="carousel-dot" aria-label="Image 3"></button>
+                  <button class="carousel-dot" aria-label="Image 4"></button>
+                  <button class="carousel-dot" aria-label="Image 5"></button>
+                </div>
+                <button class="carousel-btn carousel-next" aria-label="Next image">&#8250;</button>
+              </div>
+            </div>
+            <div class="proof-body">
+              <div class="proof-tag">Technology Showcase</div>
+              <h4>TRL-6 Demo Unit</h4>
+              <p>A pilot-ready system built for operator site visits, real performance diligence, and hands-on proof that moves beyond slide-deck credibility. The current unit is ready for deployment conversations.</p>
+            </div>
+          </div>
+
+          <!-- ── Scale Pathway (carousel + market tiers) ── -->
+          <div class="proof-card">
+            <!-- Carousel: add images as assets/images/carousel/market-1.jpg … market-5.jpg -->
+            <div class="carousel-wrap" data-carousel="market">
+              <div class="carousel-track">
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/market-1.jpg" alt="Market expansion — image 1" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span>Market · 1 / 5</span>
+                  </div>
+                </div>
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/market-2.jpg" alt="Market expansion — image 2" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span>Market · 2 / 5</span>
+                  </div>
+                </div>
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/market-3.jpg" alt="Market expansion — image 3" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span>Market · 3 / 5</span>
+                  </div>
+                </div>
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/market-4.jpg" alt="Market expansion — image 4" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span>Market · 4 / 5</span>
+                  </div>
+                </div>
+
+                <div class="carousel-slide">
+                  <img src="./assets/images/carousel/market-5.jpg" alt="Market expansion — image 5" loading="lazy" onerror="this.style.display='none'">
+                  <div class="carousel-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9AB1BD" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span>Market · 5 / 5</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="carousel-ui">
+                <button class="carousel-btn carousel-prev" aria-label="Previous image">&#8249;</button>
+                <div class="carousel-dots">
+                  <button class="carousel-dot active" aria-label="Image 1"></button>
+                  <button class="carousel-dot" aria-label="Image 2"></button>
+                  <button class="carousel-dot" aria-label="Image 3"></button>
+                  <button class="carousel-dot" aria-label="Image 4"></button>
+                  <button class="carousel-dot" aria-label="Image 5"></button>
+                </div>
+                <button class="carousel-btn carousel-next" aria-label="Next image">&#8250;</button>
+              </div>
+            </div>
+            <div class="proof-body">
+              <div class="proof-tag">Scale Pathway</div>
+              <h4>From Beachhead to Global Platform</h4>
+              <div class="market-tiers">
+
+                <div class="market-tier">
+                  <span class="tier-label">Tier&nbsp;1</span>
+                  <div class="tier-body">
+                    <h6>Large-Portfolio Operators &mdash; Onshore to Offshore</h6>
+                    <p>Major operators running high-volume onshore assets are the natural first accounts. Once Oleava's polishing step demonstrates reliability at smaller footprints, the same operators are positioned to replicate it across their broader portfolios &mdash; including offshore platforms where compact, low-energy treatment is a primary procurement criterion.</p>
+                  </div>
+                </div>
+
+                <div class="tier-divider"></div>
+
+                <div class="market-tier">
+                  <span class="tier-label">Tier&nbsp;2</span>
+                  <div class="tier-body">
+                    <h6>Thermal In-Situ &amp; SAGD Operations</h6>
+                    <p>Steam-based oil recovery generates <span class="tier-stat">~4.8M bbl/d</span> of produced water across roughly <span class="tier-stat">20 high-throughput sites</span> in North America's oil sands region. That water must be polished to <span class="tier-stat">&le;2 mg/L</span> oil-in-water before re-injection as steam &mdash; a performance threshold current systems have consistently struggled to maintain at industrial scale.</p>
+                  </div>
+                </div>
+
+                <div class="tier-divider"></div>
+
+                <div class="market-tier">
+                  <span class="tier-label">Tier&nbsp;3</span>
+                  <div class="tier-body">
+                    <h6>Global Offshore Compliance Markets</h6>
+                    <p>An estimated <span class="tier-stat">12,000 offshore platforms</span> operate globally, with thousands now subject to tightening produced-water discharge regulations across the North Sea, Middle East, and beyond. The constraint is not investment appetite &mdash; it is finding compact, regenerable, low-energy polishing technology sized for offshore environments. <span class="tier-stat">50+ near-term obtainable platforms</span> where Oleava's footprint is a direct fit.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Operator Positioning (unchanged) ── -->
+          <div class="proof-card proof-card-plain">
+            <div class="proof-body proof-body-full">
+              <div class="proof-tag">Operator Positioning</div>
+              <h4>Additive, Not Disruptive</h4>
+              <p>Oleava is not asking operators to scrap the treatment train. The ask is smaller and easier to approve at every level of the organization.</p>
+              <ul class="feature-list">
+                <li>Lower change-management burden for site operators</li>
+                <li>Cleaner underwriteable path to reuse commitments</li>
+                <li>Performance data from pilot stage that strengthens the next financing conversation</li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- /proof-row -->
+      </div>
+    </section>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section class="section section-white" id="services">
+      <div class="container">
+        <div class="section-header section-header-inline">
+          <div>
+            <div class="section-label">Services</div>
+            <h2>A deployable platform.<br>Not just a component.</h2>
+          </div>
+          <p class="section-aside">From first site assessment through commercial readiness, Oleava supports operators at every stage — not just hardware handoff.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-item">
+            <span class="service-num">01</span>
+            <h4>Site Assessment &amp; Pilot Planning</h4>
+            <p>Evaluate produced water quality, treatment-train fit, pilot objectives, and deployment requirements before field execution begins.</p>
+          </div>
+          <div class="service-item">
+            <span class="service-num">02</span>
+            <h4>Modular Treatment Deployment</h4>
+            <p>Demo-ready systems, pilot packaging, unit integration, and a clear path from a single deployment into repeatable site architecture.</p>
+          </div>
+          <div class="service-item">
+            <span class="service-num">03</span>
+            <h4>Monitoring &amp; Performance Confidence</h4>
+            <p>Operating data and monitoring reports that strengthen customer diligence and demonstrate concretely why the polishing step improves the full reuse train.</p>
+          </div>
+          <div class="service-item">
+            <span class="service-num">04</span>
+            <h4>Commercial Readiness Support</h4>
+            <p>Technical proof translated into partner-facing materials for operators, infrastructure buyers, and investors evaluating the next financing stage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TEAM ═══ -->
+    <section class="section section-light" id="team">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Founding Team</div>
+          <h2>Seven co-founders.<br>One full pipeline.</h2>
+          <p class="section-sub">Combining deep expertise in polymer science, process engineering, water treatment, product design, field operations, and data systems.</p>
+        </div>
+
+        <div class="team-grid">
+
+          <!-- ─── 01 · Puwaner Guo ─── -->
+          <article class="team-card">
+            <div class="team-card-inner">
+              <div class="team-photo">
+                <div class="team-initials" aria-hidden="true">PG</div>
+                <img src="./assets/images/team/puwaner-guo.jpg" alt="Puwaner Guo" loading="lazy">
+                <svg class="team-wave" viewBox="0 0 200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M0,12 C35,2 65,22 100,12 C135,2 165,22 200,12 L200,24 L0,24 Z" fill="white"/>
+                </svg>
+                <div class="team-bio-overlay">
+                  <p class="team-bio-text">Leads company vision and technology validation. Serves as the subject-matter expert in polymer science and foam formulation, overseeing media R&amp;D and supplier partnerships.</p>
+                </div>
+              </div>
+              <div class="team-info">
+                <div class="team-num-badge">01</div>
+                <h5>Puwaner Guo</h5>
+                <p class="team-job-title">Chief Executive Officer &middot; Materials SME</p>
+                <span class="team-founder-badge">Co-Founder</span>
+              </div>
+            </div>
+            <div class="team-social-panel" aria-label="LinkedIn">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Puwaner Guo on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span>in</span>
+              </a>
+            </div>
           </article>
-          <article class="industry-card">
-            <h3>Midstream & Processing</h3>
-            <p>Use this for centralized treatment, conditioning, and higher-throughput water handling.</p>
-          </article>
-          <article class="industry-card">
-            <h3>Industrial Water Systems</h3>
-            <p>Reserve this block for adjacent verticals you may enter after initial traction.</p>
-          </article>
-          <article class="industry-card industry-card-dark">
-            <img src="./assets/images/submark-signal.png" alt="Oleava submark">
-            <p>This darker block gives you one stronger brand moment and works well for a one-line thesis, quote, or operating principle.</p>
-          </article>
-        </div>
-      </section>
 
-      <section class="platform-section" id="platform">
-        <div class="platform-copy">
-          <p class="eyebrow">Platform</p>
-          <h2>A concise operating narrative.</h2>
-          <p>
-            Keep this area direct and operational. Each block should describe one result clearly enough for technical and commercial readers to understand where the system fits.
-          </p>
+          <!-- ─── 02 · Nitish Sarker ─── -->
+          <article class="team-card">
+            <div class="team-card-inner">
+              <div class="team-photo">
+                <div class="team-initials" aria-hidden="true">NS</div>
+                <img src="./assets/images/team/nitish-sarker.jpg" alt="Nitish Sarker" loading="lazy">
+                <svg class="team-wave" viewBox="0 0 200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M0,12 C35,2 65,22 100,12 C135,2 165,22 200,12 L200,24 L0,24 Z" fill="white"/>
+                </svg>
+                <div class="team-bio-overlay">
+                  <p class="team-bio-text">Owns process engineering, techno-economic modeling, customer integration, and pilot execution. Leads technical-commercial strategy and investor engagement.</p>
+                </div>
+              </div>
+              <div class="team-info">
+                <div class="team-num-badge">02</div>
+                <h5>Nitish Sarker, PhD</h5>
+                <p class="team-job-title">Systems, Operations &amp; Deployment Lead</p>
+                <span class="team-founder-badge">Co-Founder</span>
+              </div>
+            </div>
+            <div class="team-social-panel" aria-label="LinkedIn">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Nitish Sarker on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span>in</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ─── 03 · Amy Bilton ─── -->
+          <article class="team-card">
+            <div class="team-card-inner">
+              <div class="team-photo">
+                <div class="team-initials" aria-hidden="true">AB</div>
+                <img src="./assets/images/team/amy-bilton.jpg" alt="Amy Bilton" loading="lazy">
+                <svg class="team-wave" viewBox="0 0 200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M0,12 C35,2 65,22 100,12 C135,2 165,22 200,12 L200,24 L0,24 Z" fill="white"/>
+                </svg>
+                <div class="team-bio-overlay">
+                  <p class="team-bio-text">Serves as subject-matter expert in water treatment systems and process design. Guides R&amp;D roadmap, IP strategy, regulatory alignment, and strategic industry collaborations.</p>
+                </div>
+              </div>
+              <div class="team-info">
+                <div class="team-num-badge">03</div>
+                <h5>Amy Bilton, PhD, P.Eng.</h5>
+                <p class="team-job-title">Innovation Lead &middot; Water Treatment SME</p>
+                <span class="team-founder-badge">Co-Founder</span>
+              </div>
+            </div>
+            <div class="team-social-panel" aria-label="LinkedIn">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Amy Bilton on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span>in</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ─── 04 · Calvin Rieder ─── -->
+          <article class="team-card">
+            <div class="team-card-inner">
+              <div class="team-photo">
+                <div class="team-initials" aria-hidden="true">CR</div>
+                <img src="./assets/images/team/calvin-rieder.jpg" alt="Calvin Rieder" loading="lazy">
+                <svg class="team-wave" viewBox="0 0 200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M0,12 C35,2 65,22 100,12 C135,2 165,22 200,12 L200,24 L0,24 Z" fill="white"/>
+                </svg>
+                <div class="team-bio-overlay">
+                  <p class="team-bio-text">Leads the prototype-to-product transition, owning mechanical and pressure-housing design, system integration, and assembly workflows — combining DFM optimization with supplier QA.</p>
+                </div>
+              </div>
+              <div class="team-info">
+                <div class="team-num-badge">04</div>
+                <h5>Calvin Rieder</h5>
+                <p class="team-job-title">Product Design &amp; Manufacturing Lead</p>
+                <span class="team-founder-badge">Co-Founder</span>
+              </div>
+            </div>
+            <div class="team-social-panel" aria-label="LinkedIn">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Calvin Rieder on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span>in</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ─── 05 · Mayesha Binte Mahmud ─── -->
+          <article class="team-card">
+            <div class="team-card-inner">
+              <div class="team-photo">
+                <div class="team-initials" aria-hidden="true">MM</div>
+                <img src="./assets/images/team/mayesha-mahmud.jpg" alt="Mayesha Binte Mahmud" loading="lazy">
+                <svg class="team-wave" viewBox="0 0 200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M0,12 C35,2 65,22 100,12 C135,2 165,22 200,12 L200,24 L0,24 Z" fill="white"/>
+                </svg>
+                <div class="team-bio-overlay">
+                  <p class="team-bio-text">Develops customer relationships and pilot strategy; leads ESG and stewardship, including supplier coordination and environmentally responsible post-processing of spent foam media.</p>
+                </div>
+              </div>
+              <div class="team-info">
+                <div class="team-num-badge">05</div>
+                <h5>Mayesha Binte Mahmud, PhD</h5>
+                <p class="team-job-title">Business Development, Partnerships &amp; ESG Lead</p>
+                <span class="team-founder-badge">Co-Founder</span>
+              </div>
+            </div>
+            <div class="team-social-panel" aria-label="LinkedIn">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Mayesha Binte Mahmud on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span>in</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ─── 06 · Lu Dinder ─── -->
+          <article class="team-card">
+            <div class="team-card-inner">
+              <div class="team-photo">
+                <div class="team-initials" aria-hidden="true">LD</div>
+                <img src="./assets/images/team/lu-dinder.jpg" alt="Lu Dinder" loading="lazy">
+                <svg class="team-wave" viewBox="0 0 200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M0,12 C35,2 65,22 100,12 C135,2 165,22 200,12 L200,24 L0,24 Z" fill="white"/>
+                </svg>
+                <div class="team-bio-overlay">
+                  <p class="team-bio-text">Manages daily operations and field readiness, coordinating production scheduling, QA/QC, inventory, and logistics — ensuring smooth assembly handoff, deployment, and timely site support.</p>
+                </div>
+              </div>
+              <div class="team-info">
+                <div class="team-num-badge">06</div>
+                <h5>Lu Dinder</h5>
+                <p class="team-job-title">Operations Eng. &amp; Field Logistics Lead</p>
+                <span class="team-founder-badge">Co-Founder</span>
+              </div>
+            </div>
+            <div class="team-social-panel" aria-label="LinkedIn">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Lu Dinder on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span>in</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ─── 07 · Sameeksha Naik ─── -->
+          <article class="team-card">
+            <div class="team-card-inner">
+              <div class="team-photo">
+                <div class="team-initials" aria-hidden="true">SN</div>
+                <img src="./assets/images/team/sameeksha-naik.jpg" alt="Sameeksha Naik" loading="lazy">
+                <svg class="team-wave" viewBox="0 0 200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M0,12 C35,2 65,22 100,12 C135,2 165,22 200,12 L200,24 L0,24 Z" fill="white"/>
+                </svg>
+                <div class="team-bio-overlay">
+                  <p class="team-bio-text">Leads instrumentation, SCADA/data acquisition, and monitoring systems; builds the data pipelines and analytics that power Oleava's compliance reporting, predictive maintenance, and long-term data moat.</p>
+                </div>
+              </div>
+              <div class="team-info">
+                <div class="team-num-badge">07</div>
+                <h5>Sameeksha Naik</h5>
+                <p class="team-job-title">Data &amp; Performance Monitoring Lead</p>
+                <span class="team-founder-badge">Co-Founder</span>
+              </div>
+            </div>
+            <div class="team-social-panel" aria-label="LinkedIn">
+              <a class="team-social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Sameeksha Naik on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span>in</span>
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /team-grid -->
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section class="section section-dark" id="contact">
+      <div class="container contact-inner">
+
+        <div class="faq-col">
+          <div class="section-label section-label-light">Quick Answers</div>
+          <h2 class="heading-light">Common questions from operators, partners, and investors.</h2>
+          <div class="faq-list">
+            <details open>
+              <summary>Where does Oleava fit in the treatment train?</summary>
+              <p>After primary oil removal and before desalination — the choke point where residual emulsified oil still creates fouling risk and weakens reuse reliability. Oleava does not replace upstream treatment; it completes it.</p>
+            </details>
+            <details>
+              <summary>Does this require replacing existing infrastructure?</summary>
+              <p>No. The positioning is entirely additive — Oleava inserts a modular polishing step at the critical gap rather than requiring a full-system replacement decision from operators or their capital partners.</p>
+            </details>
+            <details>
+              <summary>What stage is the technology at today?</summary>
+              <p>TRL-6 demo readiness, with a pilot-ready form factor suitable for operator site visits and performance diligence. The modular architecture is designed for the path from single-site pilot to repeatable commercial deployment.</p>
+            </details>
+            <details>
+              <summary>Who should reach out?</summary>
+              <p>Operators exploring produced water reuse pathways, strategic partners evaluating deployment opportunities, and investors focused on industrial water infrastructure. All have a clear and direct entry point here.</p>
+            </details>
+          </div>
         </div>
 
-        <div class="platform-grid">
-          <article class="platform-card">
-            <p class="micro-label">Capture</p>
-            <h3>Target difficult oil-water mixtures</h3>
-            <p>Explain what your system separates better than conventional approaches.</p>
-          </article>
-          <article class="platform-card">
-            <p class="micro-label">Integrate</p>
-            <h3>Fit into existing treatment architecture</h3>
-            <p>Use this for retrofit, module, skid, or plug-in deployment messaging.</p>
-          </article>
-          <article class="platform-card">
-            <p class="micro-label">Operate</p>
-            <h3>Support field-practical performance</h3>
-            <p>Use this for operator simplicity, runtime stability, or maintenance profile.</p>
-          </article>
-          <article class="platform-card">
-            <p class="micro-label">Scale</p>
-            <h3>Move from pilot to broader deployment</h3>
-            <p>Use this for roadmap, customer engagement, or scale-up plan.</p>
-          </article>
+        <div class="contact-col">
+          <div class="section-label section-label-light">Contact</div>
+          <h2 class="heading-light">Start the next conversation.</h2>
+          <p class="contact-sub">Pilot discussions, site assessments, strategic partnerships, or investor introductions — reach out and someone from the team will respond directly.</p>
+          <form class="contact-form" onsubmit="return false;">
+            <div class="form-row">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name">
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@company.com">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                <span>Company</span>
+                <input type="text" name="company" placeholder="Organization">
+              </label>
+              <label>
+                <span>I am a&hellip;</span>
+                <select name="interest">
+                  <option>Operator / Customer</option>
+                  <option>Strategic Partner</option>
+                  <option>Investor</option>
+                  <option>Media / Other</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="What would you like to discuss?"></textarea>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Send Inquiry</button>
+              <a href="mailto:hello@oleava.com" class="btn btn-outline-light">Email Directly</a>
+            </div>
+          </form>
         </div>
-      </section>
 
-      <section class="brand-banner">
-        <div class="brand-banner-copy">
-          <p class="eyebrow">Brand</p>
-          <h2>The new identity supports a cleaner, higher-trust presentation.</h2>
-          <p>
-            This section is here because the new Oleava logo system is one of the strongest assets you have right now. Used selectively, it makes the page feel more deliberate and more credible.
-          </p>
-        </div>
-        <div class="brand-banner-mark">
-          <img src="./assets/images/logo-gradient.png" alt="Oleava Technologies">
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="cta-section" id="contact">
-        <div class="cta-copy">
-          <p class="eyebrow eyebrow-light">Contact</p>
-          <h2>Use this as the final conversion point for demos, pilots, or technical discussions.</h2>
-        </div>
-        <div class="cta-actions">
-          <a class="button button-primary" href="mailto:hello@yourcompany.com">Replace with Contact Email</a>
-          <a class="button button-secondary button-secondary-dark" href="https://yourdomain.com">Replace with Live Domain</a>
-        </div>
-      </section>
-    </main>
-  </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="./assets/images/logo-gradient.png" alt="Oleava Technologies">
+        <p>Making produced water reuse more trustworthy, deployable, and bankable — one treatment train at a time.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#platform">Technology</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       Carousel Script
+  ══════════════════════════════════════ -->
+  <script>
+    document.querySelectorAll('[data-carousel]').forEach(function(wrap) {
+      var track  = wrap.querySelector('.carousel-track');
+      var slides = wrap.querySelectorAll('.carousel-slide');
+      var dots   = wrap.querySelectorAll('.carousel-dot');
+      var total  = slides.length;
+      var current = 0;
+      var timer;
+
+      function goTo(n) {
+        current = ((n % total) + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function(d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      wrap.querySelector('.carousel-prev').addEventListener('click', function() { goTo(current - 1); resetTimer(); });
+      wrap.querySelector('.carousel-next').addEventListener('click', function() { goTo(current + 1); resetTimer(); });
+      dots.forEach(function(d, i) {
+        d.addEventListener('click', function() { goTo(i); resetTimer(); });
+      });
+
+      function startTimer() {
+        timer = setInterval(function() { goTo(current + 1); }, 4200);
+      }
+      function resetTimer() {
+        clearInterval(timer);
+        startTimer();
+      }
+
+      wrap.addEventListener('mouseenter', function() { clearInterval(timer); });
+      wrap.addEventListener('mouseleave', function() { startTimer(); });
+
+      // Swipe support
+      var touchStartX = 0;
+      wrap.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+      wrap.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) { goTo(dx < 0 ? current + 1 : current - 1); resetTimer(); }
+      }, { passive: true });
+
+      startTimer();
+    });
+  </script>
+
 </body>
 </html>

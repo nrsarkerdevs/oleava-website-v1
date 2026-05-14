@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="800" height="450"
+     role="img" aria-label="Pipeline of nodes with a ragged break right before desalination, marking the confidence gap.">
+  <title>The missing confidence layer</title>
+
+  <style><![CDATA[
+    /* Nodes pop in with spring — one-shot, holds at final state */
+    @keyframes nodePop {
+      0%   { transform: scale(0); opacity: 0; }
+      65%  { transform: scale(1.25); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Dashes march rightward — no delay, already loops cleanly */
+    @keyframes dashFlow {
+      from { stroke-dashoffset: 10; }
+      to   { stroke-dashoffset:  0; }
+    }
+
+    /* Marker pin slides to confidence gap — one-shot */
+    @keyframes markerSlide {
+      from { transform: translateX(0px); opacity: 0; }
+      8%   { opacity: 1; }
+      100% { transform: translateX(208px); opacity: 1; }
+    }
+
+    /* Spark dots flicker at different rates so they de-sync organically.
+       No animation-delay — different durations create the stagger on every loop. */
+    @keyframes sparkFlicker {
+      0%, 100% { opacity: 1;   transform: scale(1); }
+      45%      { opacity: 0.1; transform: scale(0.4); }
+    }
+
+    /* Gap edge pulse — delay baked into 0-40% hold (≈1.6 s of 4 s period).
+       No animation-delay so every loop is identical. */
+    @keyframes gapPulse {
+      0%, 40%  { opacity: 1; }
+      70%      { opacity: 0.25; }
+      100%     { opacity: 1; }
+    }
+
+    /* Nodes */
+    .nodes circle {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: nodePop 0.48s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    .nodes circle:nth-child(1) { animation-delay: 0.10s; }
+    .nodes circle:nth-child(2) { animation-delay: 0.32s; }
+    .nodes circle:nth-child(3) { animation-delay: 0.78s; }
+
+    /* Flowing dashes */
+    .flow {
+      animation: dashFlow 0.75s linear infinite;
+    }
+
+    /* Marker — one-shot, no loop issue */
+    .marker {
+      animation: markerSlide 1.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+      animation-delay: 1.05s;
+    }
+
+    /* Spark — different durations, no delays, organic de-sync on every loop */
+    .spark circle {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .spark circle:nth-child(1) { animation: sparkFlicker 1.50s ease-in-out infinite; }
+    .spark circle:nth-child(2) { animation: sparkFlicker 1.85s ease-in-out infinite; }
+    .spark circle:nth-child(3) { animation: sparkFlicker 2.10s ease-in-out infinite; }
+    .spark circle:nth-child(4) { animation: sparkFlicker 1.65s ease-in-out infinite; }
+    .spark circle:nth-child(5) { animation: sparkFlicker 2.30s ease-in-out infinite; }
+
+    /* Gap edge — delay baked in, no animation-delay */
+    .gap-edge {
+      animation: gapPulse 4.0s ease-in-out infinite;
+    }
+  ]]></style>
+
+  <!-- Labels -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8" fill="#9AB1BD" letter-spacing="1">
+    <text x="32"  y="132" text-anchor="middle">PRODUCED</text>
+    <text x="32"  y="142" text-anchor="middle">WATER</text>
+    <text x="120" y="132" text-anchor="middle">PRIMARY</text>
+    <text x="120" y="142" text-anchor="middle">TREATMENT</text>
+    <text x="208" y="137" text-anchor="middle" fill="#D97757">CONFIDENCE</text>
+    <text x="208" y="147" text-anchor="middle" fill="#D97757">GAP</text>
+    <text x="290" y="132" text-anchor="middle">DESALI-</text>
+    <text x="290" y="142" text-anchor="middle">NATION</text>
+  </g>
+
+  <!-- Nodes -->
+  <g class="nodes">
+    <circle cx="32"  cy="92" r="9" fill="none" stroke="#0E1A2B" stroke-width="1.5"/>
+    <circle cx="120" cy="92" r="9" fill="none" stroke="#0E1A2B" stroke-width="1.5"/>
+    <circle cx="290" cy="92" r="9" fill="#0E1A2B"/>
+  </g>
+
+  <!-- Flow connectors (dashes march right) -->
+  <line class="flow" x1="41"  y1="92" x2="111" y2="92" stroke="#0E1A2B" stroke-width="1.75" stroke-dasharray="6 4"/>
+  <line class="flow" x1="129" y1="92" x2="175" y2="92" stroke="#0E1A2B" stroke-width="1.75" stroke-dasharray="6 4"/>
+  <line class="flow" x1="241" y1="92" x2="281" y2="92" stroke="#0E1A2B" stroke-width="1.75" stroke-dasharray="6 4"/>
+
+  <!-- Gap edges (jagged break, pulses) -->
+  <g class="gap-edge">
+    <path d="M 175 92 L 180 88 L 178 94 L 184 90 L 182 96 L 187 92"
+          fill="none" stroke="#D97757" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M 241 92 L 236 96 L 238 90 L 232 94 L 234 88 L 229 92"
+          fill="none" stroke="#D97757" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Marker pin (slides once to confidence gap, stays) -->
+  <g class="marker">
+    <line x1="0" y1="6" x2="0" y2="20" stroke="#D97757" stroke-width="1.25"/>
+    <circle cx="0" cy="4" r="3" fill="#D97757"/>
+  </g>
+
+  <!-- Spark cluster at gap (five different durations = organic flicker) -->
+  <g class="spark">
+    <circle cx="195" cy="88" r="0.9" fill="#D97757"/>
+    <circle cx="208" cy="96" r="0.9" fill="#D97757"/>
+    <circle cx="221" cy="88" r="0.9" fill="#D97757"/>
+    <circle cx="200" cy="96" r="0.7" fill="#D97757"/>
+    <circle cx="216" cy="90" r="0.7" fill="#D97757"/>
+  </g>
+
+  <!-- Caption -->
+  <text x="8" y="172" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8" fill="#9AB1BD" letter-spacing="1.5">TRUST BREAKS HERE → OLEAVA CLOSES IT</text>
+</svg>
