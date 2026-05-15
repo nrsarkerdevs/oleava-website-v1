@@ -1,91 +1,284 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="800" height="450" role="img" aria-label="Storage volumes rising while a regulatory capacity ceiling closes down on them.">
-  <title>A growing volume problem</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="900" height="430" role="img" aria-label="Produced water volume rising vs. falling disposal capacity, paired with seismicity and trucking constraints.">
+<title>Volume problem — produced water vs. disposal constraints</title>
 
-  <style><![CDATA[
-    /* ── Bar grow from baseline ──
-       opacity 0→1 ensures bars are invisible during their delay even if
-       animation-fill-mode:backwards is not honoured by the img sandbox. */
-    @keyframes growBar {
-      from { transform: scaleY(0); opacity: 0; }
-      to   { transform: scaleY(1); opacity: 1; }
-    }
+<rect width="900" height="430" fill="#FFFFFF"></rect>
 
-    /* ── Breach sections pop up (spring easing) ── */
-    @keyframes breachPop {
-      0%   { transform: scaleY(0); }
-      65%  { transform: scaleY(1.18); }
-      100% { transform: scaleY(1); }
-    }
 
-    /* ── Capacity ceiling breathes as warning ──
-       Delay baked in: 40% hold (≈1.9 s) then pulse.
-       No animation-delay so every loop stays identical. */
-    @keyframes ceilingBreath {
-      0%, 40%  { opacity: 1; }
-      70%      { opacity: 0.22; }
-      100%     { opacity: 1; }
-    }
+<line x1="70" y1="60" x2="70" y2="340" stroke="#0E1A2B" stroke-width="1.25"></line>
+<line x1="70" y1="340" x2="580" y2="340" stroke="#0E1A2B" stroke-width="1.25"></line>
+<polygon points="70,52 66,58 74,58" fill="#0E1A2B"></polygon>
+<polygon points="588,340 582,336 582,344" fill="#0E1A2B"></polygon>
 
-    /* Bars — staggered growth from baseline */
-    .bar {
-      transform-box: fill-box;
-      transform-origin: bottom;
-      animation: growBar 0.52s ease-out both;
-    }
-    .b1 { animation-delay: 0.15s; }
-    .b2 { animation-delay: 0.27s; }
-    .b3 { animation-delay: 0.39s; }
-    .b4 { animation-delay: 0.51s; }
-    .b5 { animation-delay: 0.63s; }
-    .b6 { animation-delay: 0.75s; }
-    .b7 { animation-delay: 0.87s; }
-    .b8 { animation-delay: 0.99s; }
+<g transform="translate(36 200) rotate(-90)">
+  <text text-anchor="middle" dominant-baseline="middle" fill="#0E1A2B" font-family="Söhne,Inter,Helvetica,Arial,sans-serif" font-size="12" font-weight="600">PRODUCED WATER  VOLUME  TO DISPOSE</text>
+</g>
+<text x="325" y="352" text-anchor="middle" dominant-baseline="hanging" fill="#9AB1BD" font-family="ui-monospace,Menlo,monospace" font-size="11" font-weight="600" letter-spacing=".08em">TIME  →</text>
 
-    /* Breach rects — appear after bars are built */
-    .breach rect {
-      transform-box: fill-box;
-      transform-origin: bottom;
-      animation: breachPop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-    }
-    .breach rect:nth-child(1) { animation-delay: 1.28s; }
-    .breach rect:nth-child(2) { animation-delay: 1.48s; }
-    .breach rect:nth-child(3) { animation-delay: 1.68s; }
+<text x="70" y="42" fill="#9AB1BD" font-family="ui-monospace,Menlo,monospace" font-size="10" font-weight="600" letter-spacing=".08em">VOLUMES  ↑</text>
+<text x="580" y="42" text-anchor="end" fill="#D97757" font-family="ui-monospace,Menlo,monospace" font-size="10" font-weight="600" letter-spacing=".08em">CAPACITY  ↓</text>
 
-    /* Ceiling — pulses continuously; delay embedded in keyframe */
-    .ceiling {
-      animation: ceilingBreath 4.7s ease-in-out infinite;
-    }
-  ]]></style>
 
-  <!-- Baseline -->
-  <line x1="8" y1="152" x2="312" y2="152" stroke="#E2E8EC" stroke-width="1"/>
 
-  <!-- Capacity ceiling -->
-  <g class="ceiling">
-    <line x1="8" y1="54" x2="312" y2="54" stroke="#D97757" stroke-width="1.25" stroke-dasharray="3 4"/>
-    <text class="ceiling-label" x="312" y="46" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#D97757" letter-spacing="1">CAPACITY</text>
+    <g transform="translate(79.68 340)">
+      <rect x="-9.68" y="-96.92" width="19.36" height="96.92" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(103.05 340)">
+      <rect x="-9.68" y="-103.38" width="19.36" height="103.38" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(126.41 340)">
+      <rect x="-9.68" y="-110.92" width="19.36" height="110.92" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(149.77 340)">
+      <rect x="-9.68" y="-119.54" width="19.36" height="119.54" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(173.14 340)">
+      <rect x="-9.68" y="-127.08" width="19.36" height="127.08" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(196.50 340)">
+      <rect x="-9.68" y="-135.69" width="19.36" height="135.69" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(219.86 340)">
+      <rect x="-9.68" y="-142.15" width="19.36" height="142.15" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(243.23 340)">
+      <rect x="-9.68" y="-146.46" width="19.36" height="146.46" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(266.59 340)">
+      <rect x="-9.68" y="-154.00" width="19.36" height="154.00" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(289.95 340)">
+      <rect x="-9.68" y="-165.85" width="19.36" height="165.85" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(313.32 340)">
+      <rect x="-9.68" y="-174.46" width="19.36" height="174.46" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(336.68 340)">
+      <rect x="-9.68" y="-171.23" width="19.36" height="171.23" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(360.05 340)">
+      <rect x="-9.68" y="-178.77" width="19.36" height="178.77" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(383.41 340)">
+      <rect x="-9.68" y="-188.46" width="19.36" height="188.46" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(406.77 340)">
+      <rect x="-9.68" y="-196.00" width="19.36" height="196.00" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(430.14 340)">
+      <rect x="-9.68" y="-203.54" width="19.36" height="203.54" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(453.50 340)">
+      <rect x="-9.68" y="-211.08" width="19.36" height="211.08" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(476.86 340)">
+      <rect x="-9.68" y="-220.77" width="19.36" height="220.77" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(500.23 340)">
+      <rect x="-9.68" y="-229.38" width="19.36" height="229.38" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(523.59 340)">
+      <rect x="-9.68" y="-240.15" width="19.36" height="240.15" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(546.95 340)">
+      <rect x="-9.68" y="-241.23" width="19.36" height="241.23" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+    <g transform="translate(570.32 340)">
+      <rect x="-9.68" y="-262.77" width="19.36" height="262.77" fill="#0E1A2B">
+        
+      </rect>
+    </g>
+
+
+<g>
+  <line x1="70" y1="130" x2="580" y2="130" stroke="#D97757" stroke-width="1.5" stroke-dasharray="5 4" opacity="0">
+    
+    
+  </line>
+  <text x="580" y="124" text-anchor="end" fill="#D97757" font-family="ui-monospace,Menlo,monospace" font-size="10" font-weight="600" letter-spacing=".08em" opacity="0">DISPOSAL  CAPACITY
+    
+    
+  </text>
+</g>
+
+
+
+    <g transform="translate(453.50 119.92)" opacity="0">
+      <line x1="-3.5" y1="-3.5" x2="3.5" y2="3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      <line x1="-3.5" y1="3.5" x2="3.5" y2="-3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      
+      
+    </g>
+    <g transform="translate(476.86 110.23)" opacity="0">
+      <line x1="-3.5" y1="-3.5" x2="3.5" y2="3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      <line x1="-3.5" y1="3.5" x2="3.5" y2="-3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      
+      
+    </g>
+    <g transform="translate(500.23 101.62)" opacity="0">
+      <line x1="-3.5" y1="-3.5" x2="3.5" y2="3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      <line x1="-3.5" y1="3.5" x2="3.5" y2="-3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      
+      
+    </g>
+    <g transform="translate(523.59 90.85)" opacity="0">
+      <line x1="-3.5" y1="-3.5" x2="3.5" y2="3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      <line x1="-3.5" y1="3.5" x2="3.5" y2="-3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      
+      
+    </g>
+    <g transform="translate(546.95 89.77)" opacity="0">
+      <line x1="-3.5" y1="-3.5" x2="3.5" y2="3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      <line x1="-3.5" y1="3.5" x2="3.5" y2="-3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      
+      
+    </g>
+    <g transform="translate(570.32 68.23)" opacity="0">
+      <line x1="-3.5" y1="-3.5" x2="3.5" y2="3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      <line x1="-3.5" y1="3.5" x2="3.5" y2="-3.5" stroke="#D97757" stroke-width="1.75" stroke-linecap="round"></line>
+      
+      
+    </g>
+
+
+<line x1="612" y1="60" x2="612" y2="340" stroke="#DDE4E8" stroke-width="1"></line>
+
+
+<text x="630" y="42" fill="#9AB1BD" font-family="ui-monospace,Menlo,monospace" font-size="10" font-weight="600" letter-spacing=".10em">DISPOSAL  CONSTRAINTS</text>
+
+
+<text x="630" y="68" fill="#0E1A2B" font-family="Söhne,Inter,Helvetica,Arial,sans-serif" font-size="11" font-weight="700">INDUCED  SEISMICITY</text>
+<text x="630" y="82" fill="#9AB1BD" font-family="ui-monospace,Menlo,monospace" font-size="10" font-weight="500">wells shutting · permits tightening</text>
+
+
+<rect x="754" y="74" width="12" height="4" fill="#0E1A2B"></rect>
+<line x1="760" y1="78" x2="760" y2="170" stroke="#0E1A2B" stroke-width="1.25"></line>
+
+
+<g>
+  <line x1="760" y1="90" x2="760" y2="130" stroke="#0E1A2B" stroke-width="1.5">
+    
+  </line>
+  <polygon points="760,136 756,128 764,128" fill="#0E1A2B">
+    
+  </polygon>
+</g>
+
+
+<polyline points="630,170 730,170 738,176 746,164 754,176 762,164 770,176 778,164 786,170 880,170" fill="none" stroke="#0E1A2B" stroke-width="1.25"></polyline>
+
+
+<g transform="translate(760 170)">
+  <path d="M -8,0 A 8,8 0 0,1 8,0" fill="none" stroke="#D97757" stroke-width="1.5" opacity="0.85">
+    
+    
+  </path>
+  <path d="M -8,0 A 8,8 0 0,1 8,0" fill="none" stroke="#D97757" stroke-width="1.5" opacity="0.85">
+    
+    
+  </path>
+  <path d="M -8,0 A 8,8 0 0,1 8,0" fill="none" stroke="#D97757" stroke-width="1.5" opacity="0.85">
+    
+    
+  </path>
+</g>
+
+
+<line x1="756" y1="166" x2="764" y2="174" stroke="#D97757" stroke-width="1.5" stroke-linecap="round"></line>
+<line x1="756" y1="174" x2="764" y2="166" stroke="#D97757" stroke-width="1.5" stroke-linecap="round"></line>
+
+
+<text x="630" y="216" fill="#0E1A2B" font-family="Söhne,Inter,Helvetica,Arial,sans-serif" font-size="11" font-weight="700">HIGH-COST  TRUCKING</text>
+<text x="630" y="230" fill="#9AB1BD" font-family="ui-monospace,Menlo,monospace" font-size="10" font-weight="500">up to  $25 / m³  to SWD</text>
+
+
+<g transform="translate(660 250)">
+  <text x="0" y="0" text-anchor="middle" fill="#D97757" font-family="Söhne,Inter,Helvetica,Arial,sans-serif" font-size="16" font-weight="700">$
+    
+    
+  </text>
+  <text x="80" y="0" text-anchor="middle" fill="#D97757" font-family="Söhne,Inter,Helvetica,Arial,sans-serif" font-size="16" font-weight="700">$
+    
+    
+  </text>
+  <text x="160" y="0" text-anchor="middle" fill="#D97757" font-family="Söhne,Inter,Helvetica,Arial,sans-serif" font-size="16" font-weight="700">$
+    
+    
+  </text>
+</g>
+
+
+<line x1="630" y1="320" x2="880" y2="320" stroke="#0E1A2B" stroke-width="1.25"></line>
+<line x1="630" y1="306" x2="880" y2="306" stroke="#9AB1BD" stroke-width="1" stroke-dasharray="5 6"></line>
+
+
+<g>
+  <g transform="translate(580 320)">
+    <rect x="-28" y="-16" width="26" height="14" fill="#0E1A2B"></rect>
+    <rect x="-1" y="-13" width="10" height="11" fill="#0E1A2B"></rect>
+    <circle cx="-22" cy="0" r="3" fill="#D97757"></circle>
+    <circle cx="-8" cy="0" r="3" fill="#D97757"></circle>
+    <circle cx="6" cy="0" r="3" fill="#D97757"></circle>
+    
   </g>
-
-  <!-- Bars — opacity="0" seeds the invisible state before each animation delay fires -->
-  <g>
-    <rect class="bar b1" x="20"  y="64" width="20" height="88"  fill="#0E1A2B" rx="1" opacity="0"/>
-    <rect class="bar b2" x="56"  y="79" width="20" height="73"  fill="#0E1A2B" rx="1" opacity="0"/>
-    <rect class="bar b3" x="92"  y="56" width="20" height="96"  fill="#0E1A2B" rx="1" opacity="0"/>
-    <rect class="bar b4" x="128" y="72" width="20" height="80"  fill="#0E1A2B" rx="1" opacity="0"/>
-    <rect class="bar b5" x="164" y="50" width="20" height="102" fill="#0E1A2B" rx="1" opacity="0"/>
-    <rect class="bar b6" x="200" y="66" width="20" height="86"  fill="#0E1A2B" rx="1" opacity="0"/>
-    <rect class="bar b7" x="236" y="44" width="20" height="108" fill="#0E1A2B" rx="1" opacity="0"/>
-    <rect class="bar b8" x="272" y="60" width="20" height="92"  fill="#0E1A2B" rx="1" opacity="0"/>
+  <g transform="translate(580 320)">
+    <rect x="-28" y="-16" width="26" height="14" fill="#0E1A2B"></rect>
+    <rect x="-1" y="-13" width="10" height="11" fill="#0E1A2B"></rect>
+    <circle cx="-22" cy="0" r="3" fill="#D97757"></circle>
+    <circle cx="-8" cy="0" r="3" fill="#D97757"></circle>
+    <circle cx="6" cy="0" r="3" fill="#D97757"></circle>
+    
   </g>
-
-  <!-- Breach — bars exceeding capacity -->
-  <g class="breach">
-    <rect x="92"  y="50" width="20" height="6"  fill="#D97757" rx="1"/>
-    <rect x="164" y="44" width="20" height="10" fill="#D97757" rx="1"/>
-    <rect x="236" y="38" width="20" height="16" fill="#D97757" rx="1"/>
+  <g transform="translate(580 320)">
+    <rect x="-28" y="-16" width="26" height="14" fill="#0E1A2B"></rect>
+    <rect x="-1" y="-13" width="10" height="11" fill="#0E1A2B"></rect>
+    <circle cx="-22" cy="0" r="3" fill="#D97757"></circle>
+    <circle cx="-8" cy="0" r="3" fill="#D97757"></circle>
+    <circle cx="6" cy="0" r="3" fill="#D97757"></circle>
+    
   </g>
+</g>
 
-  <!-- Label -->
-  <text x="8" y="172" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8" fill="#9AB1BD" letter-spacing="1.5">VOLUMES ↑   ·   CAPACITY ↓</text>
 </svg>
