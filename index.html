@@ -139,6 +139,127 @@
       height: 1px; background: #E2E8F0;
       margin: 2px 0 2px 50px;
     }
+
+    /* ── Offer Slideshow ── */
+    .offer-stage {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+      background: #0a161a;
+      flex-shrink: 0;
+    }
+    .offer-scene {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      will-change: opacity, transform;
+    }
+    /* Scenes B/C/D — render images */
+    .offer-scene-render { background: #0a161a; }
+    .offer-slot-wrap {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      will-change: transform;
+    }
+    .offer-slot-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .offer-scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(7,23,27,0.45) 0%, rgba(7,23,27,0) 22%,
+                                rgba(7,23,27,0) 52%, rgba(7,23,27,0.72) 100%),
+        linear-gradient(90deg, rgba(7,23,27,0.28) 0%, rgba(7,23,27,0) 38%);
+      pointer-events: none;
+    }
+    .offer-corner {
+      position: absolute;
+      top: 9%;
+      right: 5%;
+      width: 28px;
+      aspect-ratio: 1;
+      opacity: 0.80;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+    }
+    .offer-corner img { width: 100%; height: 100%; object-fit: contain; }
+    /* Stat chip */
+    .offer-stat {
+      position: absolute;
+      left: 5%;
+      bottom: 14%;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(12px);
+      will-change: opacity, transform;
+    }
+    .offer-kicker {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.62);
+      margin-bottom: 6px;
+    }
+    .offer-kicker::before {
+      content: "";
+      width: 14px;
+      height: 1px;
+      background: linear-gradient(90deg, #6cd9ec, #74e69e);
+      display: block;
+    }
+    .offer-row { display: flex; align-items: baseline; gap: 7px; }
+    .offer-num {
+      font-weight: 700;
+      font-size: 1.9rem;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      background: linear-gradient(96deg, #6cd9ec 0%, #58dcb1 50%, #74e69e 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .offer-unit {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.70);
+      letter-spacing: 0.05em;
+      padding-bottom: 0.22em;
+    }
+    .offer-sub {
+      margin-top: 4px;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.68);
+    }
+    /* Progress rail */
+    .offer-rail {
+      position: absolute;
+      left: 5%; right: 5%;
+      bottom: 4%;
+      display: flex;
+      gap: 6px;
+      z-index: 20;
+    }
+    .offer-seg {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .offer-rail.light .offer-seg { background: rgba(12,28,32,0.12); }
+    .offer-seg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: var(--p, 0%);
+      background: linear-gradient(90deg, #1aaecc, #2dc85e);
+      border-radius: 2px;
+    }
   </style>
 </head>
 <body>
@@ -245,7 +366,7 @@
           </div>
           <div class="col-item">
             <h4>Oleava is breaking the barrier!</h4>
-            <p>Every basin wants fewer injection barrels and more reusable water. What's missing is a dependable interface between unpredictable oily water and high-value downstream treatment. So we engineered the foundation that makes water reliable, financeable, and tradeable — turning a stranded liability into stewarded infrastructure that capital, communities, and operators can commit to with confidence. The technology is the beginning. The standard it sets is the destiny.</p>
+            <p>Every basin wants fewer injection barrels and more reusable water. What's missing is a dependable interface between unpredictable oily water and high-value downstream treatment. So we engineered the foundation that makes water reliable, financeable, and permanent — turning a stranded liability into stewarded infrastructure that capital, communities, and operators can commit to with confidence. The technology is the beginning. The standard it sets is the destiny.</p>
             <div class="challenge-visual">
               <img class="challenge-svg"
                    src="./assets/images/Challenge/03-confidence-gap.gif"
@@ -266,7 +387,7 @@
             <h2>One step.<br>A fundamentally<br>more reliable train.</h2>
           </div>
           <div class="platform-copy">
-            <p class="platform-market-note">The Permian is where disposal burden, freshwater scarcity, and reuse urgency are most concentrated. Oleava's initial market targets the operators already feeling the most pressure to find a better answer.</p>
+            <p class="platform-market-note">The Permian Basin produces more water than any oil basin on Earth, around 22 million barrels, with the average well now lifting close to 4 barrels of water for every barrel of oil. That volume is projected to reach 26 million barrels per day by 2030, and in the Delaware sub-basin, water-to-oil ratios can hit 10 to 1. This is where disposal burden, freshwater scarcity, and reuse urgency are most concentrated and where operators are already under the most pressure to find a better answer.</p>
             <p>Oleava slots between primary oil removal and desalination — the choke point where residual emulsified oil causes the most downstream damage. The system is modular and additive: it strengthens the existing treatment train without requiring operators to replace what already works.</p>
             <p>Current materials reflect TRL-6 readiness, a demo-unit form factor sized for operator site visits, and a modular path from single-site pilot to repeatable commercial deployment.</p>
           </div>
@@ -461,8 +582,75 @@
           </div>
 
           <!-- ── What We Offer ── -->
-          <div class="proof-card proof-card-plain">
-            <div class="proof-body proof-body-full">
+          <div class="proof-card">
+
+            <!-- Slideshow stage — same 210 px height as the other two carousels -->
+            <div class="offer-stage" id="offer-stage">
+
+              <!-- Scene B · Full unit render -->
+              <div class="offer-scene offer-scene-render" data-offer-scene="b">
+                <div class="offer-slot-wrap" id="offer-slot-1">
+                  <img src="./assets/images/renders/render-unit.jpg"
+                       alt="Oleava containerized polishing unit">
+                </div>
+                <div class="offer-scrim"></div>
+                <div class="offer-corner"><img src="./assets/images/submark-signal.png" alt=""></div>
+                <div class="offer-stat" id="offer-stat-1">
+                  <div class="offer-kicker">Specific energy</div>
+                  <div class="offer-row">
+                    <div class="offer-num">0.04</div>
+                    <div class="offer-unit">kWh / m³</div>
+                  </div>
+                  <div class="offer-sub">Category-leading consumption</div>
+                </div>
+              </div>
+
+              <!-- Scene C · Membrane internals -->
+              <div class="offer-scene offer-scene-render" data-offer-scene="c">
+                <div class="offer-slot-wrap" id="offer-slot-2">
+                  <img src="./assets/images/renders/render-internals.jpg"
+                       alt="Oleava regenerable membrane stack">
+                </div>
+                <div class="offer-scrim"></div>
+                <div class="offer-corner"><img src="./assets/images/submark-signal.png" alt=""></div>
+                <div class="offer-stat" id="offer-stat-2">
+                  <div class="offer-kicker">TRL-6 demonstrated</div>
+                  <div class="offer-row">
+                    <div class="offer-num">290→2</div>
+                    <div class="offer-unit">mg / L</div>
+                  </div>
+                  <div class="offer-sub">Regenerable pore structure</div>
+                </div>
+              </div>
+
+              <!-- Scene D · Control panel -->
+              <div class="offer-scene offer-scene-render" data-offer-scene="d">
+                <div class="offer-slot-wrap" id="offer-slot-3">
+                  <img src="./assets/images/renders/render-panel.jpg"
+                       alt="Oleava real-time monitoring panel">
+                </div>
+                <div class="offer-scrim"></div>
+                <div class="offer-corner"><img src="./assets/images/submark-signal.png" alt=""></div>
+                <div class="offer-stat" id="offer-stat-3">
+                  <div class="offer-kicker">Oil-in-water · live</div>
+                  <div class="offer-row">
+                    <div class="offer-num">&lt;5</div>
+                    <div class="offer-unit">mg / L</div>
+                  </div>
+                  <div class="offer-sub">Real-time monitoring · audit-ready</div>
+                </div>
+              </div>
+
+              <!-- Progress rail -->
+              <div class="offer-rail" id="offer-rail">
+                <div class="offer-seg" data-i="0"></div>
+                <div class="offer-seg" data-i="1"></div>
+                <div class="offer-seg" data-i="2"></div>
+              </div>
+
+            </div><!-- /offer-stage -->
+
+            <div class="proof-body">
               <div class="proof-tag">What We Offer</div>
               <h4>Field-Ready Performance. Drop-In Simple.</h4>
               <p>No system replacement. No change-management battle. Oleava closes the gap between your existing treatment train and your reuse commitment — with numbers that hold up under diligence.</p>
@@ -470,11 +658,12 @@
                 <li><strong>Sub-5 mg/L effluent</strong> across varied crude slates, production chemistries, and upset conditions</li>
                 <li><strong>290 mg/L → 2 mg/L</strong> demonstrated in TRL-6 pilot — a direct proof point, not a projection</li>
                 <li><strong>0.04 kWh/m³</strong> specific energy consumption — category-leading among competing polishing technologies</li>
-                <li><strong>True drop-in integration</strong> with a containerized footprint of 2,500–4,000 GPD/ft² — no civil works, no full-train replacement</li>
-                <li><strong>Low maintenance, high reliability</strong> — regenerable pore structure and remote-ready design built for harsh-climate operations</li>
-                <li><strong>Real-time oil-in-water monitoring</strong> with uptime tracking and audit-ready reports that reduce exceedance risk and strengthen financing conversations</li>
+                <li><strong>True drop-in integration</strong> with a containerized footprint of 2,500–4,000 GPD/ft²</li>
+                <li><strong>Low maintenance, high reliability</strong> — regenerable pore structure, remote-ready</li>
+                <li><strong>Real-time monitoring</strong> with audit-ready reports that reduce exceedance risk</li>
               </ul>
             </div>
+
           </div>
 
         </div><!-- /proof-row -->
@@ -877,6 +1066,130 @@
 
       startTimer();
     });
+  </script>
+
+  <!-- ── Offer Slideshow ── -->
+  <script>
+  (function () {
+    // 3 scenes (B, C, D), 5 s each
+    const SCENE_IDS = ['b', 'c', 'd'];
+    const N         = SCENE_IDS.length;   // 3
+    const SCENE_MS  = 5000;               // ms per scene
+    const HOLD_MS   = 4300;               // full-opacity window
+    const FADE_MS   = 700;                // crossfade
+    const TOTAL     = SCENE_MS * N;       // 15 000 ms
+
+    const stage = document.getElementById('offer-stage');
+    const rail  = document.getElementById('offer-rail');
+    if (!stage || !rail) return;
+
+    const sceneEls = SCENE_IDS.map(id => stage.querySelector('[data-offer-scene="' + id + '"]'));
+    const segs     = [...rail.querySelectorAll('.offer-seg')];
+    const slot1    = document.getElementById('offer-slot-1');
+    const slot2    = document.getElementById('offer-slot-2');
+    const slot3    = document.getElementById('offer-slot-3');
+    const stat1    = document.getElementById('offer-stat-1');
+    const stat2    = document.getElementById('offer-stat-2');
+    const stat3    = document.getElementById('offer-stat-3');
+
+    // Easing helpers
+    const easeOut   = t => 1 - Math.pow(1 - t, 3);
+    const easeInOut = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+    const clamp     = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+    const lerp      = (a, b, t) => a + (b - a) * t;
+    const range     = (t, a, b) => clamp((t - a) / (b - a));
+
+    // Scene opacity — crossfade centred on the hold window
+    function sceneOpacity(t, i) {
+      const center = i * SCENE_MS + HOLD_MS / 2;
+      let d = t - center;
+      while (d >  TOTAL / 2) d -= TOTAL;
+      while (d < -TOTAL / 2) d += TOTAL;
+      d = Math.abs(d);
+      if (d <= HOLD_MS / 2) return 1;
+      if (d >= HOLD_MS / 2 + FADE_MS) return 0;
+      return 1 - (d - HOLD_MS / 2) / FADE_MS;
+    }
+
+    // Normalised position within a scene (0 → 1)
+    function sceneLocal(t, i) {
+      const local = ((t - i * SCENE_MS) % TOTAL + TOTAL) % TOTAL;
+      return clamp(local / SCENE_MS);
+    }
+
+    // Cinematic motion: zoom-in ➜ peak ➜ zoom-out with a continuous pan.
+    // dir: 0 = left→right, 1 = right→left diagonal, 2 = bottom→top diagonal
+    function cinematic(p, dir) {
+      // Scale bell-curve — peaks at p=0.5, gentle at start and end
+      const zoomCurve = Math.sin(p * Math.PI);     // 0 → 1 → 0
+      const scale = 1.02 + 0.09 * zoomCurve;       // 1.02 → 1.11 → 1.02
+
+      // Pan — eased across the full scene
+      const panP = easeInOut(p);
+      let tx = 0, ty = 0;
+      if (dir === 0) { tx = lerp(-2.0,  2.0, panP); ty = lerp( 0.6, -0.6, panP); }  // L → R drift
+      if (dir === 1) { tx = lerp( 2.0, -2.0, panP); ty = lerp(-0.8,  0.8, panP); }  // R → L diagonal
+      if (dir === 2) { tx = lerp(-0.6,  0.6, panP); ty = lerp( 1.4, -1.4, panP); }  // bottom → top
+
+      return { scale, tx, ty };
+    }
+
+    const start = performance.now();
+
+    function frame(now) {
+      const t = (now - start) % TOTAL;
+
+      // Scene opacities
+      sceneEls.forEach((el, i) => { if (el) el.style.opacity = sceneOpacity(t, i).toFixed(3); });
+
+      // Scene B (index 0) — cinematic dir 0, L→R
+      if (slot1 && stat1) {
+        const p  = sceneLocal(t, 0);
+        const cm = cinematic(p, 0);
+        slot1.style.transform = 'scale(' + cm.scale.toFixed(4) + ') translate(' + cm.tx.toFixed(3) + '%, ' + cm.ty.toFixed(3) + '%)';
+        const es = easeOut(range(p, 0.08, 0.40));
+        const fo = 1 - easeInOut(range(p, 0.82, 0.97));
+        stat1.style.opacity   = (es * fo).toFixed(3);
+        stat1.style.transform = 'translateY(' + lerp(12, 0, es) + 'px)';
+      }
+
+      // Scene C (index 1) — cinematic dir 1, R→L diagonal
+      if (slot2 && stat2) {
+        const p  = sceneLocal(t, 1);
+        const cm = cinematic(p, 1);
+        slot2.style.transform = 'scale(' + cm.scale.toFixed(4) + ') translate(' + cm.tx.toFixed(3) + '%, ' + cm.ty.toFixed(3) + '%)';
+        const es = easeOut(range(p, 0.08, 0.40));
+        const fo = 1 - easeInOut(range(p, 0.82, 0.97));
+        stat2.style.opacity   = (es * fo).toFixed(3);
+        stat2.style.transform = 'translateY(' + lerp(12, 0, es) + 'px)';
+      }
+
+      // Scene D (index 2) — cinematic dir 2, bottom→top
+      if (slot3 && stat3) {
+        const p  = sceneLocal(t, 2);
+        const cm = cinematic(p, 2);
+        slot3.style.transform = 'scale(' + cm.scale.toFixed(4) + ') translate(' + cm.tx.toFixed(3) + '%, ' + cm.ty.toFixed(3) + '%)';
+        const es = easeOut(range(p, 0.08, 0.40));
+        const fo = 1 - easeInOut(range(p, 0.82, 0.97));
+        stat3.style.opacity   = (es * fo).toFixed(3);
+        stat3.style.transform = 'translateY(' + lerp(12, 0, es) + 'px)';
+      }
+
+      // Progress rail
+      const aliveIdx = Math.floor(t / SCENE_MS) % N;
+      segs.forEach((s, i) => {
+        let fill;
+        if      (i < aliveIdx)  fill = 100;
+        else if (i === aliveIdx) fill = ((t - i * SCENE_MS) / SCENE_MS) * 100;
+        else                     fill = 0;
+        s.style.setProperty('--p', fill + '%');
+      });
+
+      requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
+  })();
   </script>
 
 </body>
