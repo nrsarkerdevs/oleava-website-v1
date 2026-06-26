@@ -68,15 +68,15 @@ button, input, select, textarea { font: inherit; }
   display: flex;
   align-items: center;
   gap: 32px;
-  height: 68px;
+  height: 84px;
 }
-.nav-logo img { height: 42px; }
+.nav-logo img { height: 60px; }
 .nav nav {
   display: flex;
-  gap: 28px;
+  gap: 30px;
   flex: 1;
   justify-content: center;
-  font-size: 0.93rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #374151;
 }
@@ -105,12 +105,12 @@ button, input, select, textarea { font: inherit; }
 
 /* Nav CTA */
 .btn-nav {
-  height: 40px;
-  padding: 0 18px;
+  height: 46px;
+  padding: 0 20px;
   border-radius: 8px;
   background: var(--dark);
   color: #fff;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 700;
 }
 .btn-nav:hover { background: var(--dark-2); }
@@ -155,10 +155,11 @@ button, input, select, textarea { font: inherit; }
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 460px;
-  gap: 72px;
-  align-items: center;
+  gap: 60px;
+  align-items: stretch;
 }
-.hero-text { display: grid; gap: 28px; }
+.hero-text { display: grid; gap: 28px; align-content: center; }
+.hero-visual { display: flex; flex-direction: column; }
 
 .kicker {
   font-size: 0.78rem;
@@ -186,6 +187,13 @@ h1 {
   flex-wrap: wrap;
   gap: 12px;
 }
+/* In the visual column, sit the buttons at the bottom so they line up
+   with the last line of the left-panel copy — and keep them side by side. */
+.hero-visual .hero-actions {
+  margin-top: auto;
+  padding-top: 20px;
+  flex-wrap: nowrap;
+}
 
 /* Hero visual */
 .hero-frame {
@@ -194,31 +202,35 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.10);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.03);
-  aspect-ratio: 4 / 3;
+  /* 3:2 sits closer to the 16:9 video than 4:3, so cover crops less of the
+     sides while keeping roughly the same frame height. */
+  aspect-ratio: 3 / 2;
+  /* Drop the frame past the kicker line (kicker height + 28px row gap)
+     so its top aligns with the "Are you ready…" headline. */
+  margin-top: 48px;
 }
 .hero-frame video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 20px;
+  object-fit: cover;            /* fill the frame edge-to-edge */
+  display: block;
 }
-.hero-badge {
+.hero-submark {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: -30px;
+  right: -25px;
+  width: 150px;
+  height: 150px;
   z-index: 2;
-  padding: 5px 12px;
-  border-radius: 99px;
-  background: rgba(14, 165, 216, 0.16);
-  border: 1px solid rgba(14, 165, 216, 0.32);
-  color: var(--accent);
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.25));
+}
+.hero-submark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .hero-caption {
-  margin-top: 14px;
+  margin-top: 16px;
 }
 .hero-chip {
   display: flex;
@@ -229,7 +241,7 @@ h1 {
   background: rgba(255, 255, 255, 0.04);
 }
 .chip-label {
-  font-size: 0.76rem;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -343,6 +355,34 @@ p { color: var(--muted); }
   line-height: 1.7;
 }
 
+/* Services header — video on the left (under the label), copy on the right */
+.services-header {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+.services-intro {
+  display: flex;
+  flex-direction: column;
+}
+.services-media {
+  flex: 1;                 /* fill the column height under the label */
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.services-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* fill the column — crop overflow */
+  display: block;
+}
+/* Let the copy fill the wider right column. */
+.services-copy .section-sub { max-width: none; }
+/* Drop the copy past the "Services" label so its top lines up with the video. */
+.services-copy .section-sub:first-child { margin-top: 35px; }
+
 
 /* ═══════════════════════════════════════════
    THREE-COL (About section)
@@ -382,6 +422,10 @@ p { color: var(--muted); }
   margin-bottom: 16px;
 }
 .platform-copy p:last-child { margin-bottom: 0; }
+
+/* Challenge header — left panel ~25% wider than the right; narrower
+   column gap reclaims ~5% extra width for the left panel. */
+.challenge-header { grid-template-columns: 1.31fr 1fr; gap: 24px; }
 
 
 /* ═══════════════════════════════════════════
@@ -457,8 +501,8 @@ p { color: var(--muted); }
 ═══════════════════════════════════════════ */
 .proof-row {
   display: grid;
-  grid-template-columns: 1.05fr 1fr 0.95fr;
-  gap: 18px;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
 }
 .proof-card {
   border: 1px solid var(--border);
@@ -555,6 +599,13 @@ p { color: var(--muted); }
 .service-item h4 {
   font-size: 1.04rem;
   margin-bottom: 0;
+}
+.service-tagline {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.98rem !important;
+  line-height: 1.4 !important;
+  margin: -2px 0 2px;
 }
 .service-item p { font-size: 0.95rem; line-height: 1.68; }
 
@@ -757,6 +808,14 @@ details[open] > summary::after { transform: rotate(45deg); }
     max-width: 680px;
   }
   .hero-visual { max-width: 520px; }
+  .hero-frame { margin-top: 0; }   /* stacked layout — no headline offset needed */
+
+  .services-header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .services-media { max-width: 520px; }
+  .services-media video { height: auto; }   /* natural ratio when stacked */
 
   .platform-header {
     grid-template-columns: 1fr;
@@ -986,7 +1045,7 @@ details[open] > summary::after { transform: rotate(45deg); }
 .team-bio-text {
   font-size: 0.90rem;
   line-height: 1.68;
-  color: rgba(255, 255, 255, 0.90);
+  color: #ffffff;
   /* override base muted color */
 }
 
