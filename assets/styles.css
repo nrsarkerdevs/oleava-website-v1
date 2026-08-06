@@ -54,7 +54,9 @@ button, input, select, textarea { font: inherit; }
 
 /* ── Container ── */
 .container {
-  width: min(1240px, calc(100% - 48px));
+  /* Side margins: 48px/side up to ~1344px (so 48 @1280), then margins grow —
+     96 @1440, ~336 @1920. */
+  width: min(1248px, calc(100% - 96px));
   margin: 0 auto;
 }
 
