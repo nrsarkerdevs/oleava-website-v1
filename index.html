@@ -96,7 +96,6 @@
     }
     .form-status.is-success { color: #34d399; }
     .form-status.is-error   { color: #f87171; }
-    .h-captcha { margin: 4px 0 2px; }
 
     /* ── Image Carousel ── */
     .carousel-wrap {
@@ -1060,7 +1059,6 @@
               <span>Message</span>
               <textarea name="message" rows="5" placeholder="What would you like to discuss?"></textarea>
             </label>
-            <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-theme="dark"></div>
             <div class="form-actions">
               <button type="submit" class="btn btn-primary">Send Inquiry</button>
               <a href="mailto:info@oleavatech.com" class="btn btn-outline-light">Email Directly</a>
@@ -1230,9 +1228,6 @@
   })();
   </script>
 
-  <!-- hCaptcha (renders any .h-captcha widgets) -->
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-
   <!-- ── Contact form → Web3Forms ── -->
   <script>
   (function () {
@@ -1244,12 +1239,6 @@
       var key = (form.querySelector('[name="access_key"]') || {}).value || '';
       if (key.indexOf('YOUR_WEB3FORMS') === 0 || !key) {
         status.textContent = 'Form isn’t connected yet — add the Web3Forms access key.';
-        status.className = 'form-status is-error';
-        return;
-      }
-      var captcha = form.querySelector('[name="h-captcha-response"]');
-      if (!captcha || !captcha.value) {
-        status.textContent = 'Please complete the “I am human” check first.';
         status.className = 'form-status is-error';
         return;
       }
@@ -1268,7 +1257,6 @@
           status.textContent = 'Thanks — your message is on its way. We’ll be in touch shortly.';
           status.className = 'form-status is-success';
           form.reset();
-          if (window.hcaptcha) { try { hcaptcha.reset(); } catch (err) {} }
         } else {
           status.textContent = (data.message || 'Something went wrong.') + ' You can also email info@oleavatech.com directly.';
           status.className = 'form-status is-error';
