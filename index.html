@@ -34,6 +34,70 @@
       font-weight: 500;
     }
 
+    /* ── What We Offer · clickable pilot-partnership box ── */
+    .offer-cta {
+      display: block;
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: rgba(14,165,216,0.06);
+      border-left: 3px solid #0EA5D8;
+      border-radius: 0 8px 8px 0;
+      color: #0E1A2B;
+      cursor: pointer;
+      transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    }
+    .offer-cta:hover {
+      background: rgba(14,165,216,0.12);
+      box-shadow: 0 8px 20px rgba(14,165,216,0.16);
+      transform: translateY(-1px);
+    }
+    .offer-cta-lead {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .offer-cta-list {
+      display: grid;
+      gap: 6px;
+      margin: 0 0 12px;
+      padding: 0;
+      list-style: none;
+    }
+    .offer-cta-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: #33475b;
+    }
+    .offer-cta-list li::before {
+      content: "";
+      position: absolute;
+      left: 2px; top: 0.55em;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #0EA5D8;
+    }
+    .offer-cta-link {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0EA5D8;
+    }
+    .offer-cta:hover .offer-cta-link { text-decoration: underline; }
+
+    /* ── Contact form status message ── */
+    .form-status {
+      margin-top: 4px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      min-height: 1.2em;
+    }
+    .form-status.is-success { color: #34d399; }
+    .form-status.is-error   { color: #f87171; }
+    .h-captcha { margin: 4px 0 2px; }
+
     /* ── Image Carousel ── */
     .carousel-wrap {
       position: relative;
@@ -122,7 +186,7 @@
       text-transform: uppercase;
     }
     .tier-body h6 {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Archivo SemiCondensed', 'Space Grotesk', sans-serif;
       font-size: 0.82rem; font-weight: 700;
       color: #0E1A2B; margin: 0 0 3px;
     }
@@ -287,9 +351,9 @@
       <div class="container hero-inner">
         <div class="hero-text">
           <div class="kicker">A University of Toronto Spin-Off &nbsp;&nbsp;&nbsp;&nbsp;</div>
-          <h1>Are you ready to turn produced water into a reusable resource?</h1>
-          <p class="hero-sub">Produced water is one of the largest and fastest-growing infrastructure burdens in the U.S. energy industry. Today, much of it is separated, transported, and injected underground. With disposal constraints and heightened pressure on freshwater supplies, operators are seeking more sustainable and treatment-focused pathways to reuse. </p>
-          <p class ="hero-sub"> A major barrier to reuse is the residual emulsified oil that slips through conventional separation, destabilizes desalination systems, and makes reuse-grade treatment too unpredictable to finance and operate at scale. Oleava addresses this hidden failure point with a modular tertiary polishing step that captures residual oil before advanced treatment, turning produced water into a more reliable and bankable feed for reuse.</p>
+          <h1>Ready to unlock produced water reuse?</h1>
+          <p class="hero-sub">Produced water is one of the largest and fastest-growing infrastructure burdens in the U.S. energy industry. Today, much of it is treated for bulk oil removal, transported, and injected underground. With disposal constraints and heightened pressure on freshwater supplies, operators are seeking more sustainable and treatment-focused pathways to reuse. </p>
+          <p class ="hero-sub"> A major barrier to reuse is the residual emulsified oil that slips through conventional oil-water filters, which destabilizes desalination systems and makes reuse-grade treatment too unpredictable to finance and operate at scale. Oleava addresses this hidden failure point with a modular tertiary polishing step that captures residual oil before advanced treatment or surface discharge, turning produced water management more reliable and economical.</p>
         </div>
         <div class="hero-visual">
           <div class="hero-frame">
@@ -304,7 +368,7 @@
           <div class="hero-caption">
             <div class="hero-chip">
               <span class="chip-label"></span>
-              <span class="chip-value">More than a filter, Oleava’s modular polishing platforms are engineered to stabilize produced-water treatment combining targeted oil capture, low-energy operation, sensor-enabled monitoring, and reduced operator burden in one compact step.<br><br><strong>Selective pilot partnerships are open!</strong></span>
+              <span class="chip-value">More than a filter, Oleava is a compact polishing platform engineered to stabilize produced water reuse before advanced treatment and reduce operator burden. <br><br><strong>Selective pilot partnerships are open!</strong></span>
             </div>
           </div>
           <div class="hero-actions">
@@ -324,13 +388,13 @@
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
-          <strong>$15M–$50M/day </strong>
-          <span>Estimated water management exposure in the Permian Basin alone, when disposal, transport, constraints, and missed reuse values are combined</span>
+          <strong>~$50M/day </strong>
+          <span>Estimated water management expenditure in the Permian Basin alone, when disposal, transport, constraints, and missed reuse values are combined</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
           <strong>What if ...</strong>
-          <span>Oilfield produced water could help meet AI data center and power plant water demand without taking more from aquifers, farms, or cities?</span>
+          <span>Oilfield produced water could help meet data center and power plant cooling water demand without taking more from aquifers, farms, or cities?</span>
         </div>
       </div>
     </div>
@@ -341,10 +405,10 @@
         <div class="section-header platform-header challenge-header">
           <div>
             <div class="section-label">The Challenge</div>
-            <h2>Disposal is expensive.<br>Reuse needs desalination.<br>Desal needs stable feedwater.</h2>
+            <h2>Disposal is expensive.<br>Reuse requires desalination.<br>Desalination fails when oil breaks through.</h2>
           </div>
           <div class="platform-copy">
-            <p class="platform-market-note">The Permian Basin produces more water than any oil basin on Earth, around 22 million barrels, with the average well now lifting close to 4 barrels of water for every barrel of oil. That volume is projected to reach 26 million barrels per day by 2030, and in the Delaware sub-basin, water-to-oil ratios can hit 10 to 1. This is where disposal burden, freshwater scarcity, and reuse urgency are most concentrated and where operators are already under the most pressure to find a better answer.</p>
+            <p class="platform-market-note">The U.S. Permian Basin produces more water than any oil basin on Earth, around 22 million barrels, with the average well now lifting close to 4 barrels of water for every barrel of oil. That volume is projected to reach 26 million barrels per day by 2030. This is where disposal burden, freshwater scarcity, and reuse urgency are most concentrated and where operators are already under the most pressure to find a better solution.</p>
           </div>
         </div>
         <div class="three-col">
@@ -360,7 +424,7 @@
           </div>
           <div class="col-item">
             <h4>Reuse economics struggles with the oil that slips through.</h4>
-            <p>Existing treatment infrastructure remove the 'free' oil, but not all of residual 'emulsified' oil, which damages downstream assets, raises operating cost, and turns produced-water reuse into an uptime and planning-risk problem. Oleava captures it before desalination systems pay the price, giving operators a low-cost wedge between frac recycling today, disposal reduction, and beneficial reuse tomorrow.</p>
+            <p>Existing treatment infrastructure remove the 'free' oil, but not all of residual 'emulsified' oil, which damages downstream assets, raises operating cost, and makes desalination technologies harder to trust. Oleava captures those before reaching desalination or discharge points, giving operators a low-cost wedge between frac recycling today, disposal reduction, and beneficial reuse tomorrow.</p>
             <div class="challenge-visual">
               <img class="challenge-svg"
                    src="./assets/images/Challenge/02-treatment-train.gif"
@@ -370,8 +434,8 @@
           </div>
           <div class="col-item">
             <h4>Oleava is breaking the barrier!</h4>
-            <p>Produced-water reuse needs more than another treatment unit. So we engineered the platform for targeted oil capture with minimal operator burden. </p>
-            <p>Our goal is not only to deploy technology, but to define a new operating standard for produced-water reuse: treatment that is intelligent, service-backed, performance-driven, and reliable enough to turn a stranded liability into a responsible water infrastructure that operators, communities, and capital can commit to with confidence.</p>
+            <p>We engineered <em>the</em> platform for targeted emulsified oil capture with minimal operator burden. </p>
+            <p>Our goal is to define a new operating standard for produced water reuse: treatment that is intelligent, service-backed, performance-driven, and reliable against field variabilities. Oleava provides a modular, optimized system to transform a stranded liability into a responsible water infrastructure, that operators and communities can commit to with confidence.</p>
             <div class="challenge-visual">
               <img class="challenge-svg"
                    src="./assets/images/Challenge/03-confidence-gap.gif"
@@ -401,24 +465,24 @@
         <div class="process-flow">
           <div class="process-step">
             <div class="step-num">01</div>
-            <h5>Primary Oil Removal</h5>
-            <p>Bulk separation and upstream treatment complete the first pass — leaving residual emulsified oil in the produced water stream.</p>
+            <h5>Existing Oil-Water Treatment</h5>
+            <p>Bulk oil, solids, and free hydrocarbons are removed through primary separation, secondary treatment, and conventional polishing (where used), leaving residual emulsified oil in the produced water stream.</p>
           </div>
           <div class="process-step step-oleava">
             <div class="oleava-tag">Oleava</div>
             <div class="step-num step-accent">02</div>
-            <h5>Pre-Desal Polishing</h5>
-            <p>Targeted removal of the residual oil fraction before it can disrupt downstream treatment economics, membrane performance, or reuse reliability.</p>
+            <h5>Pre-Desal Guard Polishing</h5>
+            <p>Targeted removal of the residual emulsified and dissolved oil fractions before they disrupt downstream treatment economics, membrane performance, and reuse reliability.</p>
           </div>
           <div class="process-step">
             <div class="step-num">03</div>
             <h5>Desalination</h5>
-            <p>Cleaner feed water means lower fouling risk, more predictable membrane life, and operating economics that hold up under diligence.</p>
+            <p>Cleaner, more predictable feedwater lowers membrane fouling risk and supports consistent performance and operating economics that hold up under technical and commercial diligence.</p>
           </div>
           <div class="process-step">
             <div class="step-num">04</div>
-            <h5>Reuse or Compliance</h5>
-            <p>Water quality that is easier to route toward useful end-uses or meet evolving discharge standards with confidence.</p>
+            <h5>Reuse and Compliance</h5>
+            <p>A robust treatment train for consistently producing higher quality, reuse-grade water to route toward beneficial industrial and agricultural end-uses or meet evolving discharge standards with confidence.</p>
           </div>
         </div>
 
@@ -530,15 +594,26 @@
             <div class="proof-body">
               <div class="proof-tag">What We Offer</div>
               <h4>Field-Ready Performance. Drop-In Simple.</h4>
-              <p>No system replacement. No change-management battle. Oleava closes the gap between your existing treatment train and your reuse commitment — with numbers that hold up under diligence.</p>
+              <p>No system replacement. No complicated training. Oleava closes the gap between your existing treatment train and your reuse commitment, with benchmark performance metrics that hold up under diligence.</p>
               <ul class="feature-list">
-                <li><strong>Sub-5 mg/L effluent</strong> across varied crude slates, production chemistries, and upset conditions</li>
-                <li><strong>290 mg/L → 2 mg/L</strong> demonstrated in TRL-6 pilot — a direct proof point, not a projection</li>
-                <li><strong>0.04 kWh/m³</strong> specific energy consumption — category-leading among competing polishing technologies</li>
-                <li><strong>True drop-in integration</strong> with a containerized footprint of 2,500–4,000 GPD/ft²</li>
-                <li><strong>Low maintenance, high reliability</strong> — regenerable pore structure, remote-ready</li>
-                <li><strong>Real-time monitoring</strong> with audit-ready reports that reduce exceedance risk</li>
+                <li><strong>Sub-5 mg/L oil-in-water effluent</strong> across varied crude slates, production chemistries, and upset conditions</li>
+                <li><strong>300 mg/L → 2 mg/L oil-in-water</strong> demonstrated in TRL-6 pilot, a direct proof point, not a projection</li>
+                <li><strong>0.04 kWh/m³</strong> specific energy consumption, category-leading among competing polishing technologies</li>
+                <li><strong>True drop-in integration</strong> with 10'-20' containerized footprints; 700–3,000 GPD/ft²</li>
+                <li><strong>Low maintenance, regenerable pore structure</strong> with remote-ready support</li>
+                <li><strong>Real-time performance monitoring</strong> with audit-ready reports that reduce exceedance risk</li>
               </ul>
+
+              <a href="#contact" class="offer-cta" aria-label="Contact Oleava about a pilot partnership">
+                <p class="offer-cta-lead">We are actively organizing pilots with operators to prove how reliable polishing reduces OPEX risk in produced water management. If you:</p>
+                <ul class="offer-cta-list">
+                  <li>Need to meet tightening oil-in-water discharge limits and downstream asset protection</li>
+                  <li>Are focused on scaling internal produced water recycling and beneficial reuse</li>
+                  <li>Are replacing aging treatment infrastructure with Industry 4.0-ready systems</li>
+                  <li>Need rapid and modular deployment with minimal operational disruption</li>
+                </ul>
+                <span class="offer-cta-link">Let&rsquo;s evaluate your requirements and define the right pilot pathway&nbsp;&rarr;</span>
+              </a>
             </div>
 
           </div>
@@ -604,14 +679,14 @@
             </div>
             <div class="proof-body">
               <div class="proof-tag">Markets We Serve</div>
-              <h4>From Beachhead to Global Platform</h4>
+              <h4>Engineered for High-value Produced Water Market</h4>
               <div class="market-tiers">
 
                 <div class="market-tier">
                   <span class="tier-label">Tier&nbsp;1</span>
                   <div class="tier-body">
-                    <h6>Large-Portfolio Operators &mdash; Onshore to Offshore</h6>
-                    <p>High-volume onshore operators are the natural first accounts. Proven reliability at initial sites creates a replication path across broader portfolios — including offshore platforms where compact, low-energy treatment is a primary procurement criterion.</p>
+                    <h6>Large-Portfolio Operators &mdash; Onshore and Offshore</h6>
+                    <p>Our pilot units are ready for operators with small to large produced water assets. Initial field deployments can demonstrate treatment reliability, operating simplicity, and downstream protection at one site, then create a repeatable model across broader onshore portfolios and offshore facilities where compact footprint, low energy demand, and reduced operator burden are critical.</p>
                   </div>
                 </div>
 
@@ -621,7 +696,7 @@
                   <span class="tier-label">Tier&nbsp;2</span>
                   <div class="tier-body">
                     <h6>Thermal In-Situ &amp; SAGD Operations</h6>
-                    <p>Steam-based recovery across North America's oil sands generates <span class="tier-stat">~4.8M bbl/d</span> of produced water that must reach <span class="tier-stat">&le;2 mg/L</span> oil-in-water before re-injection &mdash; a threshold existing systems have consistently struggled to hold.</p>
+                    <p>Steam-based recovery across North America's oil sands generates <span class="tier-stat">~4.8M bbl/d</span> of produced water that must reach <span class="tier-stat">&le;2 mg/L</span> oil-in-water before re-injection. Our polishing platform is designed to support these high-throughput, oil-sensitive trains by improving residual oil control and feedwater consistency under variable operating conditions.</p>
                   </div>
                 </div>
 
@@ -631,7 +706,17 @@
                   <span class="tier-label">Tier&nbsp;3</span>
                   <div class="tier-body">
                     <h6>Global Offshore Compliance Markets</h6>
-                    <p>Tightening discharge regulations across the North Sea, Middle East, and beyond are driving demand for compact, low-energy polishing at sea. <span class="tier-stat">50+ near-term platforms</span> represent an obtainable fit for Oleava's footprint.</p>
+                    <p>Tightening discharge regulations across the U.S. Gulf, North Sea, Middle East, and beyond are driving demand for compact, low-energy polishing at sea. Oleava units are custom-designed with these practical constraints in mind while simplifying integration and supporting compliance-driven polishing.</p>
+                  </div>
+                </div>
+
+                <div class="tier-divider"></div>
+
+                <div class="market-tier">
+                  <span class="tier-label">Adjacent&nbsp;Markets</span>
+                  <div class="tier-body">
+                    <h6>Industrial, Marine &amp; Emergency Oily-Water Treatment</h6>
+                    <p>Beyond produced water, Oleava's filtration media is customizable for other oily wastewater streams where residual hydrocarbons, emulsions, limited space, and discharge or reuse requirements create reliability challenges. These applications include marine bilge and offshore deck drainage, refinery and petrochemical wastewater polishing, industrial process-water reuse, and emergency oil-spill response support.</p>
                   </div>
                 </div>
 
@@ -647,41 +732,36 @@
     <section class="section section-white" id="services">
       <div class="container">
         <div class="section-header services-header">
-          <div class="services-intro">
-            <div class="section-label">Services</div>
-            <div class="services-media">
-              <video autoplay muted loop playsinline>
-                <source src="./assets/images/water_meter_service.mp4" type="video/mp4">
-              </video>
-            </div>
+          <div class="services-media">
+            <video autoplay muted loop playsinline>
+              <source src="./assets/images/Oleava_DG2_3Assembly.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="services-copy">
-            <p class="section-sub">Oleava is built for the operators responsible for difficult water: oil and gas midstream teams, offshore producers, environmental managers, and industrial water stakeholders who need treatment performance they can trust in the field.</p>
-            <p class="section-sub">We are not a hardware handoff. From site assessment and treatment-train integration to pilot validation, performance monitoring, and repeatable deployment across assets, Oleava supports operators through every step of adoption. Our service-backed platform is designed to reduce technical risk, lower operator burden, and create the field data investors and customers need to scale with confidence.</p>
+            <p class="section-sub">Oleava is built for the teams responsible for managing difficult water: oil and gas midstream operators, offshore producers, environmental managers, and industrial water stakeholders who need performance they can trust in the field.</p>
+            <p class="section-sub">We are not a hardware handoff. From treatment-train integration to repeatable deployment, Oleava supports operators through every step of adoption. Our service-backed platform is designed to reduce technical risk, lower operator burden, and generate the field data partners need to scale with confidence.</p>
+            <p class="section-sub">Our pilot-scale system, DG2-3, is ready for evaluating residual oil capture, upset response, downstream protection,and integration fit before committing to broader deployment. DG2-3 is also built with simple, sensor-enabled monitoring that turns each pilot into a decision-ready data package without adding operational complexity. </p>
           </div>
         </div>
+        <div class="section-label services-tag">Services</div>
         <div class="services-grid">
           <div class="service-item">
-            <span class="service-num">01</span>
-            <h4>Assess</h4>
+            <span class="service-num">01&nbsp;&middot;&nbsp;Assess</span>
             <p class="service-tagline">Understand the water. Define the pathway. Together.</p>
             <p>Every produced-water stream is different, so we start side by side with your water management team. We characterize water chemistry, emulsion characteristics, operating conditions, treatment-train fit, and reuse objectives to define the right polishing strategy before anything is deployed, including integration planning, pilot scope, and clear success criteria we agree on up front for field validation.</p>
           </div>
           <div class="service-item">
-            <span class="service-num">02</span>
-            <h4>Deploy</h4>
+            <span class="service-num">02&nbsp;&middot;&nbsp;Deploy</span>
             <p class="service-tagline">Modular treatment units customized to operating conditions.</p>
             <p>We deliver field-ready polishing units built for rapid installation, compact-footprint operation, and integration with the infrastructure you already run. Working alongside your operators, we put targeted oil capture to the test under real flow, chemistry, and upset conditions, without replacing the systems that already work.</p>
           </div>
           <div class="service-item">
-            <span class="service-num">03</span>
-            <h4>Validate</h4>
+            <span class="service-num">03&nbsp;&middot;&nbsp;Validate</span>
             <p class="service-tagline">Turn field performance into decision-ready data.</p>
             <p>Together we generate the operating evidence your stakeholders need for commercial confidence: water-quality monitoring, residual oil-removal performance, treatment stability, downstream-protection insight, and optimization recommendations. We hand back a practical data package your team, partners, and investors can use to evaluate scale-up.</p>
           </div>
           <div class="service-item">
-            <span class="service-num">04</span>
-            <h4>Scale</h4>
+            <span class="service-num">04&nbsp;&middot;&nbsp;Scale</span>
             <p class="service-tagline">Multi-site repeatable water infrastructure.</p>
             <p>Validated deployments become the foundation for a repeatable treatment architecture across assets. We partner through scale-up toward more reliable produced-water reuse, desalination-ready feed preparation, compliant discharge pathways, and fit-for-purpose recovery for industrial, environmental, and resource-management applications where permitted.</p>
           </div>
@@ -694,8 +774,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-label">Founding Team</div>
-          <h2>Seven co-founders.<br>One full pipeline.</h2>
-          <p class="section-sub">Combining deep expertise in polymer science, process engineering, water treatment, product design, field operations, and data systems.</p>
+          <p class="section-sub">Oleava is a cross-disciplinary team built to solve produced water treatment from molecule to field deployment, combining expertise in polymer materials, process engineering, product design, desalination, operations, and data systems.</p>
         </div>
 
         <div class="team-grid">
@@ -746,7 +825,7 @@
               <div class="team-info">
                 <div class="team-num-badge">02</div>
                 <h5>Nitish Sarker, PhD</h5>
-                <p class="team-job-title">Systems, Operations &amp; Deployment Lead</p>
+                <p class="team-job-title">Chief Technology Officer &middot; Process Engineering</p>
                 <span class="team-founder-badge">Co-Founder</span>
               </div>
             </div>
@@ -776,7 +855,7 @@
               <div class="team-info">
                 <div class="team-num-badge">03</div>
                 <h5>Sameeksha Naik</h5>
-                <p class="team-job-title">Data &amp; Performance Monitoring Lead</p>
+                <p class="team-job-title">Sensing &amp; Performance Systems</p>
                 <span class="team-founder-badge">Co-Founder</span>
               </div>
             </div>
@@ -806,7 +885,7 @@
               <div class="team-info">
                 <div class="team-num-badge">04</div>
                 <h5>Lu Dinder</h5>
-                <p class="team-job-title">Operations Eng. &amp; Field Logistics Lead</p>
+                <p class="team-job-title">Field Engineering &amp; Deployment</p>
                 <span class="team-founder-badge">Co-Founder</span>
               </div>
             </div>
@@ -836,7 +915,7 @@
               <div class="team-info">
                 <div class="team-num-badge">05</div>
                 <h5>Mayesha Binte Mahmud, PhD</h5>
-                <p class="team-job-title">Business Development, Partnerships &amp; ESG Lead</p>
+                <p class="team-job-title">Commercial Partnerships &amp; Capital</p>
                 <span class="team-founder-badge">Co-Founder</span>
               </div>
             </div>
@@ -866,7 +945,7 @@
               <div class="team-info">
                 <div class="team-num-badge">06</div>
                 <h5>Calvin Rieder</h5>
-                <p class="team-job-title">Product Design &amp; Manufacturing Lead</p>
+                <p class="team-job-title">Product &amp; Manufacturing</p>
                 <span class="team-founder-badge">Co-Founder</span>
               </div>
             </div>
@@ -896,7 +975,7 @@
               <div class="team-info">
                 <div class="team-num-badge">07</div>
                 <h5>Amy Bilton, PhD, P.Eng.</h5>
-                <p class="team-job-title">Innovation Lead &middot; Water Treatment SME</p>
+                <p class="team-job-title">Water Technology &amp; Strategy</p>
                 <span class="team-founder-badge">Co-Founder</span>
               </div>
             </div>
@@ -945,15 +1024,21 @@
           <div class="section-label section-label-light">Contact</div>
           <h2 class="heading-light">Start the next conversation.</h2>
           <p class="contact-sub">Pilot discussions, site assessments, strategic partnerships, or investor introductions — reach out and someone from the team will respond directly.</p>
-          <form class="contact-form" onsubmit="return false;">
+          <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms configuration — replace the access key below with the one emailed to info@oleavatech.com -->
+            <input type="hidden" name="access_key" value="db1c1b6d-4736-4f72-b8c4-f3241acb7e9f">
+            <input type="hidden" name="subject" value="New inquiry from the Oleava website">
+            <input type="hidden" name="from_name" value="Oleava Website">
+            <!-- Honeypot: hidden from people, bots fill it and get filtered -->
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;" aria-hidden="true">
             <div class="form-row">
               <label>
                 <span>Name</span>
-                <input type="text" name="name" placeholder="Your name">
+                <input type="text" name="name" placeholder="Your name" required>
               </label>
               <label>
                 <span>Email</span>
-                <input type="email" name="email" placeholder="you@company.com">
+                <input type="email" name="email" placeholder="you@company.com" required>
               </label>
             </div>
             <div class="form-row">
@@ -975,10 +1060,12 @@
               <span>Message</span>
               <textarea name="message" rows="5" placeholder="What would you like to discuss?"></textarea>
             </label>
+            <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-theme="dark"></div>
             <div class="form-actions">
               <button type="submit" class="btn btn-primary">Send Inquiry</button>
-              <a href="mailto:hello@oleava.com" class="btn btn-outline-light">Email Directly</a>
+              <a href="mailto:info@oleavatech.com" class="btn btn-outline-light">Email Directly</a>
             </div>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
 
@@ -1140,6 +1227,61 @@
 
       requestAnimationFrame(frame);
     }
+  })();
+  </script>
+
+  <!-- hCaptcha (renders any .h-captcha widgets) -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+  <!-- ── Contact form → Web3Forms ── -->
+  <script>
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    var status = document.getElementById('form-status');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var key = (form.querySelector('[name="access_key"]') || {}).value || '';
+      if (key.indexOf('YOUR_WEB3FORMS') === 0 || !key) {
+        status.textContent = 'Form isn’t connected yet — add the Web3Forms access key.';
+        status.className = 'form-status is-error';
+        return;
+      }
+      var captcha = form.querySelector('[name="h-captcha-response"]');
+      if (!captcha || !captcha.value) {
+        status.textContent = 'Please complete the “I am human” check first.';
+        status.className = 'form-status is-error';
+        return;
+      }
+      var btn = form.querySelector('button[type="submit"]');
+      var label = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending…';
+      status.textContent = ''; status.className = 'form-status';
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.success) {
+          status.textContent = 'Thanks — your message is on its way. We’ll be in touch shortly.';
+          status.className = 'form-status is-success';
+          form.reset();
+          if (window.hcaptcha) { try { hcaptcha.reset(); } catch (err) {} }
+        } else {
+          status.textContent = (data.message || 'Something went wrong.') + ' You can also email info@oleavatech.com directly.';
+          status.className = 'form-status is-error';
+        }
+      })
+      .catch(function () {
+        status.textContent = 'Network error — please email info@oleavatech.com directly.';
+        status.className = 'form-status is-error';
+      })
+      .finally(function () {
+        btn.disabled = false; btn.textContent = label;
+      });
+    });
   })();
   </script>
 

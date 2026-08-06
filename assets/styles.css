@@ -3,6 +3,17 @@
    Clean, editorial, deep-tech confident
 ───────────────────────────────────────────── */
 
+/* ── Local fonts ── */
+@font-face {
+  font-family: 'Archivo SemiCondensed';
+  src: url('./fonts/Archivo_SemiCondensed-SemiBold.ttf') format('truetype');
+  /* Single SemiBold file; declare a range so 600–700 requests render from it
+     without faux-bold synthesis. */
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -18,9 +29,10 @@ body {
 }
 img, video { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-family: 'Space Grotesk', 'Manrope', sans-serif;
+  font-family: 'Archivo SemiCondensed', 'Space Grotesk', 'Manrope', sans-serif;
+  font-weight: 600;
   letter-spacing: -0.035em;
 }
 p, ul { margin: 0; }
@@ -170,10 +182,12 @@ button, input, select, textarea { font: inherit; }
 }
 
 h1 {
+  font-family: 'Archivo SemiCondensed', 'Space Grotesk', 'Manrope', sans-serif;
+  font-weight: 600;
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.07;
   color: #ffffff;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .hero-sub {
@@ -276,17 +290,17 @@ h1 {
   padding: 40px 36px;
 }
 .stat strong {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Archivo SemiCondensed', 'Space Grotesk', sans-serif;
   font-size: clamp(1.7rem, 2.8vw, 2.3rem);
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 600;
+  color: #f6f8ed;
   letter-spacing: -0.035em;
   line-height: 1;
 }
 .stat span {
   font-size: 0.88rem;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.44);
+  color: #f6f8ed;
 }
 .stat-sep {
   width: 1px;
@@ -325,10 +339,12 @@ h1 {
 .section-label-light { color: rgba(14, 165, 216, 0.80); }
 
 h2 {
+  font-family: 'Archivo SemiCondensed', 'Space Grotesk', 'Manrope', sans-serif;
+  font-weight: 600;
   font-size: clamp(2rem, 3.8vw, 3.1rem);
   line-height: 1.09;
   color: var(--ink);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 .heading-light { color: #ffffff; }
 
@@ -354,34 +370,32 @@ p { color: var(--muted); }
   max-width: 58ch;
   line-height: 1.7;
 }
+/* Team intro paragraph spans the full panel width. */
+#team .section-sub { max-width: none; }
 
-/* Services header — video on the left (under the label), copy on the right */
+/* Services header — floating video on the left, copy on the right */
 .services-header {
   display: grid;
-  grid-template-columns: 480px 1fr;
-  gap: 28px;
+  grid-template-columns: 800px 1fr;
+  gap: 32px;
   align-items: stretch;
-}
-.services-intro {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 40px;
 }
 .services-media {
-  flex: 1;                 /* fill the column height under the label */
+  align-self: start;       /* don't stretch to the text height */
   border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border);
+  overflow: hidden;        /* no border — the video reads as a floating panel */
 }
 .services-media video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;       /* fill the column — crop overflow */
+  height: auto;            /* fill the 800px width at native ratio — never cropped */
   display: block;
 }
-/* Let the copy fill the wider right column. */
+/* Let the copy fill the right column and start level with the video top. */
 .services-copy .section-sub { max-width: none; }
-/* Drop the copy past the "Services" label so its top lines up with the video. */
-.services-copy .section-sub:first-child { margin-top: 35px; }
+.services-copy .section-sub:first-child { margin-top: 0; }
+/* Blue "Services" tag introducing the Assess → Scale cards. */
+.services-tag { margin-bottom: 16px; }
 
 
 /* ═══════════════════════════════════════════
@@ -425,7 +439,7 @@ p { color: var(--muted); }
 
 /* Challenge header — left panel ~25% wider than the right; narrower
    column gap reclaims ~5% extra width for the left panel. */
-.challenge-header { grid-template-columns: 1.31fr 1fr; gap: 24px; }
+.challenge-header { grid-template-columns: 1.78fr 1fr; gap: 24px; }
 
 
 /* ═══════════════════════════════════════════
@@ -1045,7 +1059,7 @@ details[open] > summary::after { transform: rotate(45deg); }
 .team-bio-text {
   font-size: 0.90rem;
   line-height: 1.68;
-  color: #ffffff;
+  color: #f6f8ed;
   /* override base muted color */
 }
 
@@ -1062,12 +1076,7 @@ details[open] > summary::after { transform: rotate(45deg); }
 }
 
 .team-num-badge {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  color: #0EA5D8;
-  margin-bottom: 3px;
+  display: none;   /* numbers removed from the team cards */
 }
 
 .team-info h5 {
@@ -1084,6 +1093,9 @@ details[open] > summary::after { transform: rotate(45deg); }
   line-height: 1.46;
   color: #64748B;
   margin-top: 2px;
+  /* Always reserve two lines so one-line titles get an extra line of space
+     before the Co-Founder badge — keeping every card the same height. */
+  min-height: 3.4em;
 }
 
 .team-founder-badge {
