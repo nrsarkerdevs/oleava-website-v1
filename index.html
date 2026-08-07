@@ -332,7 +332,7 @@
       <a href="#top" class="nav-logo">
         <img src="./assets/images/ProcessNavy_OT_PNG_Transparent.png" alt="Oleava Technologies">
       </a>
-      <nav aria-label="Primary">
+      <nav aria-label="Primary" id="primary-nav">
         <a href="#about">About</a>
         <a href="#platform">Technology</a>
         <a href="#services">Services</a>
@@ -340,6 +340,9 @@
         <a href="#contact">Contact</a>
       </nav>
       <a href="#contact" class="btn btn-nav">Talk to Us &rarr;</a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -1225,6 +1228,31 @@
 
       requestAnimationFrame(frame);
     }
+  })();
+  </script>
+
+  <!-- ── Mobile nav (hamburger) ── -->
+  <script>
+  (function () {
+    var header = document.getElementById('top');
+    var toggle = document.getElementById('nav-toggle');
+    if (!header || !toggle) return;
+    var menu = header.querySelector('nav');
+    function close() {
+      header.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = header.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    if (menu) {
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+    }
+    document.addEventListener('click', function (e) {
+      if (header.classList.contains('nav-open') && !header.contains(e.target)) close();
+    });
   })();
   </script>
 
